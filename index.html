@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welm.app</title>
+    <meta
+      name="description"
+      content="Welm is a bare bones todo list app for staying focused and completing what matters."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">Welm.app</a>
+      <nav aria-label="Site links">
+        <button class="header-download" type="button" data-download-open>Download</button>
+        <a class="mobile-download" href="https://apps.apple.com/us/app/welm/id6752449247">Download</a>
+      </nav>
+    </header>
+
+    <dialog class="download-modal" aria-labelledby="download-modal-title">
+      <h2 id="download-modal-title">Download for iOS</h2>
+      <img class="qr" src="assets/app-store-qr.svg" alt="QR code to open Welm in the App Store">
+    </dialog>
+
+    <main class="sprite-grid">
+      <section id="download" class="tile intro" aria-label="About Welm">
+        <p>
+          Welm is a to-do list solely dedicated to helping you take control
+          of your day, stay focused, and complete the things that matter most.
+        </p>
+        <p>
+          Unfortunately, this means it can't afford to distract you with good
+          looks.
+        </p>
+        <div class="download">
+          <h2>Download for iOS</h2>
+          <img class="qr" src="assets/app-store-qr.svg" alt="QR code to open Welm in the App Store">
+          <a class="download-button" href="https://apps.apple.com/us/app/welm/id6752449247">Download for iOS</a>
+        </div>
+      </section>
+
+      <figure class="tile app-shot">
+        <img src="assets/welm-app.png" alt="Screenshot of the Welm todo list app">
+      </figure>
+    </main>
+
+    <footer class="site-footer">
+      <span>&copy; 2026 Welm</span>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </footer>
+    <script src="modal.js"></script>
+  </body>
+</html>

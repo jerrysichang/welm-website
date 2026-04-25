@@ -1,0 +1,287 @@
+:root {
+  --background: #d4d4d4;
+  --foreground: #000;
+  --container-padding: 32px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Inter, Arial, sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  padding: 24px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: var(--background);
+  color: var(--foreground);
+  font-size: 16px;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+a,
+.header-download,
+.mobile-download,
+.download-button {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.header-download {
+  appearance: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.mobile-download,
+.download-button {
+  display: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.site-header,
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 760px);
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 24px;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  background: var(--background);
+  border: 1px solid var(--foreground);
+}
+
+.site-header::before {
+  content: "";
+  position: fixed;
+  left: -24px;
+  right: -24px;
+  top: 0;
+  height: 24px;
+  background: var(--background);
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.brand,
+nav {
+  padding: 12px var(--container-padding);
+}
+
+nav {
+  border-left: 1px solid var(--foreground);
+}
+
+nav,
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.site-footer {
+  gap: 16px;
+  padding: 12px var(--container-padding);
+}
+
+.sprite-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) 1fr;
+  min-height: 100%;
+  border-left: 1px solid var(--foreground);
+}
+
+h1,
+h2,
+p,
+blockquote,
+figure,
+ul {
+  margin: 0;
+}
+
+h1 {
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
+h2 {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.download h2 {
+  font-size: 18px;
+}
+
+.tile,
+.legal-page main {
+  display: grid;
+  gap: 10px;
+}
+
+.tile {
+  min-height: 180px;
+  padding: 20px;
+  border-right: 1px solid var(--foreground);
+  border-bottom: 1px solid var(--foreground);
+  overflow: hidden;
+}
+
+.qr {
+  width: 100%;
+  max-width: 220px;
+}
+
+.intro {
+  align-content: start;
+  gap: 14px;
+  padding: var(--container-padding) var(--container-padding) 64px;
+  order: 2;
+}
+
+.app-shot {
+  align-content: center;
+  justify-items: center;
+  padding: 40px;
+  background-image: radial-gradient(var(--foreground) 1px, transparent 1px);
+  background-size: 3px 3px;
+  order: 1;
+}
+
+.app-shot img {
+  width: 100%;
+  max-width: 280px;
+  padding: 32px 12px;
+  background: var(--background);
+  border: 1px solid var(--foreground);
+  border-radius: 32px;
+}
+
+.download {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.download-button {
+  padding: 12px;
+  border: 1px solid var(--foreground);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.download-modal {
+  width: min(calc(100% - 48px), 340px);
+  padding: 24px 32px 32px;
+  background: var(--background);
+  color: var(--foreground);
+  border: 1px solid var(--foreground);
+  border-radius: 0;
+  box-shadow: 6px 6px 0 var(--foreground);
+}
+
+.download-modal[open] {
+  display: grid;
+  gap: 16px;
+  justify-items: center;
+  text-align: center;
+}
+
+.download-modal::backdrop {
+  background: rgb(0 0 0 / 35%);
+}
+
+.download-modal .qr {
+  max-width: 280px;
+}
+
+.site-footer {
+  border-left: 1px solid var(--foreground);
+  border-right: 1px solid var(--foreground);
+  border-bottom: 1px solid var(--foreground);
+}
+
+.legal-page h1 {
+  font-size: 32px;
+  line-height: 1.1;
+}
+
+.legal-page h2 {
+  font-size: 18px;
+  line-height: 1.15;
+}
+
+.legal-page section {
+  display: grid;
+  gap: 18px;
+  max-width: 720px;
+}
+
+.legal-page main {
+  align-content: start;
+  padding: var(--container-padding) var(--container-padding) 64px;
+  border: 1px solid var(--foreground);
+  border-top: 0;
+}
+
+@media (min-width: 761px) {
+  .tile {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 760px) {
+  .sprite-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app-shot {
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 760px) and (hover: none) and (pointer: coarse) {
+  .header-download,
+  .download h2,
+  .download .qr {
+    display: none;
+  }
+
+  .mobile-download,
+  .download-button {
+    display: inline-block;
+  }
+}
