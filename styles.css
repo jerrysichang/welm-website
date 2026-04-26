@@ -1,6 +1,8 @@
 :root {
   --background: #d4d4d4;
   --foreground: #000;
+  --page-inset: 24px;
+  --top-inset: calc(var(--page-inset) + env(safe-area-inset-top, 0px));
   --container-padding: 32px;
 }
 
@@ -17,7 +19,7 @@ html {
 body {
   margin: 0;
   min-height: 100dvh;
-  padding: 24px;
+  padding: var(--top-inset) var(--page-inset) var(--page-inset);
   display: grid;
   grid-template-rows: auto 1fr auto;
   background: var(--background);
@@ -72,7 +74,7 @@ main,
 
 .site-header {
   position: sticky;
-  top: 24px;
+  top: var(--top-inset);
   z-index: 10;
   display: grid;
   grid-template-columns: 1fr auto;
@@ -83,10 +85,10 @@ main,
 .site-header::before {
   content: "";
   position: fixed;
-  left: -24px;
-  right: -24px;
+  left: calc(-1 * var(--page-inset));
+  right: calc(-1 * var(--page-inset));
   top: 0;
-  height: 24px;
+  height: var(--top-inset);
   background: var(--background);
 }
 
@@ -114,6 +116,11 @@ nav,
 .site-footer {
   gap: 16px;
   padding: 12px var(--container-padding);
+}
+
+.site-footer span {
+  margin-left: auto;
+  order: 2;
 }
 
 .sprite-grid {
@@ -278,6 +285,17 @@ h2 {
 
   .app-shot {
     grid-row: auto;
+  }
+
+  .site-footer {
+    display: grid;
+    gap: 8px;
+    align-items: start;
+  }
+
+  .site-footer span {
+    margin-left: 0;
+    order: 3;
   }
 }
 
