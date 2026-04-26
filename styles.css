@@ -29,6 +29,18 @@ body {
   letter-spacing: -0.01em;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--top-inset);
+  pointer-events: none;
+  background: var(--background);
+}
+
 a,
 .header-download,
 .main-download,
@@ -80,16 +92,6 @@ main,
   grid-template-columns: 1fr auto;
   background: var(--background);
   border: 1px solid var(--foreground);
-}
-
-.site-header::before {
-  content: "";
-  position: fixed;
-  left: calc(-1 * var(--page-inset));
-  right: calc(-1 * var(--page-inset));
-  top: 0;
-  height: var(--top-inset);
-  background: var(--background);
 }
 
 .brand {
@@ -279,6 +281,11 @@ h2 {
 }
 
 @media (max-width: 760px) {
+  :root {
+    --page-inset: 12px;
+    --container-padding: 20px;
+  }
+
   .sprite-grid {
     grid-template-columns: 1fr;
   }
