@@ -17,56 +17,58 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="/">Welm.app</a>
-      <nav aria-label="Site links">
-        <button class="header-download" type="button" data-download-open>Download</button>
-        <a class="mobile-download" href="https://apps.apple.com/us/app/welm/id6752449247">Download</a>
-      </nav>
-    </header>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="/">Welm.app</a>
+        <nav aria-label="Site links">
+          <button class="header-download" type="button" data-download-open>Download</button>
+          <a class="mobile-download" href="https://apps.apple.com/us/app/welm/id6752449247">Download</a>
+        </nav>
+      </header>
 
-    <dialog class="download-modal" aria-labelledby="download-modal-title">
-      <h2 id="download-modal-title">Download for iOS</h2>
-      <img class="qr" src="assets/app-store-qr.svg" alt="QR code to open Welm in the App Store">
-    </dialog>
+      <dialog class="download-modal" aria-labelledby="download-modal-title">
+        <h2 id="download-modal-title">Download for iOS</h2>
+        <img class="qr" src="assets/app-store-qr.svg" alt="QR code to open Welm in the App Store">
+      </dialog>
 
-    <main class="sprite-grid">
-      <section id="download" class="tile intro" aria-label="About Welm">
-        <p>
-          A task manager. It remembers things so you don't have to pretend you
-          will.
-        </p>
-        <p>
-          No algorithms. No streaks.
-        </p>
-        <p>
-          Up to 6.9&quot; of crisp monochrome display.
-        </p>
-        <div class="features">
-          <h2>Features:</h2>
-          <ul>
-            <li>Free.</li>
-            <li>Designed for completing tasks, not curating them.</li>
-            <li>Modest rewards for finishing things.</li>
-            <li>Finds your optimism endearing.</li>
-          </ul>
-        </div>
-        <div class="download">
-          <button class="main-download" type="button" data-download-open>Download</button>
-          <a class="download-button" href="https://apps.apple.com/us/app/welm/id6752449247">Download for iOS</a>
-        </div>
-      </section>
+      <main class="sprite-grid">
+        <section id="download" class="tile intro" aria-label="About Welm">
+          <p>
+            A task manager. It remembers things so you don't have to pretend you
+            will.
+          </p>
+          <p>
+            No algorithms. No streaks.
+          </p>
+          <p>
+            Up to 6.9&quot; of crisp monochrome display.
+          </p>
+          <div class="features">
+            <h2>Features:</h2>
+            <ul>
+              <li>Free.</li>
+              <li>Designed for completing tasks, not curating them.</li>
+              <li>Modest rewards for finishing things.</li>
+              <li>Finds your optimism endearing.</li>
+            </ul>
+          </div>
+          <div class="download">
+            <button class="main-download" type="button" data-download-open>Download</button>
+            <a class="download-button" href="https://apps.apple.com/us/app/welm/id6752449247">Download for iOS</a>
+          </div>
+        </section>
 
-      <figure class="tile app-shot">
-        <img src="assets/welm-app.png" alt="Screenshot of the Welm todo list app">
-      </figure>
-    </main>
+        <figure class="tile app-shot">
+          <img src="assets/welm-app.png" alt="Screenshot of the Welm todo list app">
+        </figure>
+      </main>
 
-    <footer class="site-footer">
-      <span>&copy; 2026 Welm</span>
-      <a href="support.html">Support</a>
-      <a href="privacy.html">Privacy Policy</a>
-    </footer>
+      <footer class="site-footer">
+        <span>&copy; 2026 Welm</span>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </footer>
+    </div>
     <script src="modal.js"></script>
   </body>
 </html>
