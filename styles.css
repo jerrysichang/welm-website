@@ -29,6 +29,7 @@ body {
 
 a,
 .header-download,
+.main-download,
 .mobile-download,
 .download-button {
   color: var(--foreground);
@@ -37,12 +38,15 @@ a,
   text-underline-offset: 3px;
 }
 
-.header-download {
+.header-download,
+.main-download {
   appearance: none;
+  -webkit-appearance: none;
   border: 0;
   border-radius: 0;
   padding: 0;
   background: transparent;
+  color: inherit;
   font: inherit;
   cursor: pointer;
 }
@@ -87,7 +91,6 @@ main,
 }
 
 .brand {
-  font-size: 20px;
   font-weight: 700;
   text-decoration: none;
 }
@@ -105,6 +108,7 @@ nav,
 .site-footer {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .site-footer {
@@ -114,7 +118,7 @@ nav,
 
 .sprite-grid {
   display: grid;
-  grid-template-columns: minmax(240px, 320px) 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   min-height: 100%;
   border-left: 1px solid var(--foreground);
 }
@@ -128,6 +132,10 @@ ul {
   margin: 0;
 }
 
+ul {
+  padding-left: 1.2em;
+}
+
 h1 {
   font-size: inherit;
   line-height: inherit;
@@ -137,10 +145,6 @@ h1 {
 h2 {
   font-size: inherit;
   line-height: inherit;
-}
-
-.download h2 {
-  font-size: 18px;
 }
 
 .tile,
@@ -192,8 +196,18 @@ h2 {
   gap: 10px;
   margin-top: 12px;
   align-content: center;
-  justify-items: center;
-  text-align: center;
+  justify-items: start;
+  text-align: left;
+}
+
+.features {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.features h2 {
+  font-weight: 400;
 }
 
 .download-button {
@@ -240,7 +254,7 @@ h2 {
 }
 
 .legal-page h2 {
-  font-size: 18px;
+  font-size: inherit;
   line-height: 1.15;
 }
 
@@ -257,12 +271,6 @@ h2 {
   border-top: 0;
 }
 
-@media (min-width: 761px) {
-  .tile {
-    font-size: 18px;
-  }
-}
-
 @media (max-width: 760px) {
   .sprite-grid {
     grid-template-columns: 1fr;
@@ -275,8 +283,7 @@ h2 {
 
 @media (max-width: 760px) and (hover: none) and (pointer: coarse) {
   .header-download,
-  .download h2,
-  .download .qr {
+  .main-download {
     display: none;
   }
 

@@ -1,9 +1,11 @@
 const downloadModal = document.querySelector(".download-modal");
-const downloadOpen = document.querySelector("[data-download-open]");
+const downloadOpenButtons = document.querySelectorAll("[data-download-open]");
 
-if (downloadModal && downloadOpen) {
-  downloadOpen.addEventListener("click", () => {
-    downloadModal.showModal();
+if (downloadModal && downloadOpenButtons.length) {
+  downloadOpenButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      downloadModal.showModal();
+    });
   });
 
   downloadModal.addEventListener("click", (event) => {
