@@ -6,7 +6,7 @@
     <title>Welm.app</title>
     <meta
       name="description"
-      content="Welm is a bare bones todo list app for staying focused and completing what matters."
+      content="Welm helps you do what matters most. No cloud, no login, no noise—just a blunt task list."
     >
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,59 +16,95 @@
     >
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
-    <div class="page-shell">
-      <header class="site-header">
+  <body class="home-page">
+    <header class="site-header">
+      <div class="site-header__inner">
         <a class="brand" href="/">Welm.app</a>
         <nav aria-label="Site links">
           <button class="header-download" type="button" data-download-open>Download</button>
           <a class="mobile-download" href="https://apps.apple.com/us/app/welm/id6752449247">Download</a>
         </nav>
-      </header>
+      </div>
+    </header>
 
-      <dialog class="download-modal" aria-labelledby="download-modal-title">
-        <h2 id="download-modal-title">Download for iOS</h2>
-        <img class="qr" src="assets/app-store-qr.svg" alt="QR code to open Welm in the App Store">
-      </dialog>
+    <dialog class="download-modal" aria-labelledby="download-modal-title">
+      <h2 id="download-modal-title">Download for iOS</h2>
+      <img class="qr" src="assets/app-store-qr.svg" alt="QR code to open Welm in the App Store">
+    </dialog>
 
-      <main class="sprite-grid">
-        <section id="download" class="tile intro" aria-label="About Welm">
-          <p>
-            A task manager. It remembers things so you don't have to pretend you
-            will.
-          </p>
-          <p>
-            No algorithms. No streaks.
-          </p>
-          <p>
-            Up to 6.9&quot; of crisp monochrome display.
-          </p>
-          <div class="features">
-            <h2>Features:</h2>
-            <ul>
-              <li>Free.</li>
-              <li>Designed for completing tasks, not curating them.</li>
-              <li>Modest rewards for finishing things.</li>
-              <li>Finds your optimism endearing.</li>
-            </ul>
+    <main class="site-main">
+      <div class="container">
+        <h1 class="lede">
+          Welm exists for one reason: to help you do what matters most.
+        </h1>
+
+        <p>
+          You won&rsquo;t be asked to log in,<br>
+          hand over your location,<br>
+          store anything in the cloud.<br>
+          <br>
+          You won&rsquo;t be upsold,<br>
+          streak-shamed,<br>
+          or nudged.<br>
+          <br>
+          You won&rsquo;t be<br>
+          welcomed,<br>
+          coddled,<br>
+          hand-held,<br>
+          or splashed with motivational platitudes.<br>
+          <br>
+          You won&rsquo;t be fiddling with a kanban view,<br>
+          a calendar integration,<br>
+          nested tags,<br>
+          or AI-generated suggestions.<br>
+          <br>
+          You won&rsquo;t even be able to stomach looking at it for too long:
+        </p>
+      </div>
+
+      <section class="dot-surface" aria-label="App preview and download">
+        <figure class="showcase">
+          <div class="showcase-frame">
+            <img
+              src="assets/welm-app-screen.png"
+              srcset="
+                assets/welm-app-screen.png 472w,
+                assets/welm-app-screen@2x.png 944w,
+                assets/welm-app-screen@3x.png 1416w
+              "
+              sizes="(max-width: 480px) 68vw, 260px"
+              width="472"
+              height="1024"
+              alt="Welm app showing Personal tasks in Now and Next sections"
+            >
           </div>
-          <div class="download">
-            <button class="main-download" type="button" data-download-open>Download</button>
-            <a class="download-button" href="https://apps.apple.com/us/app/welm/id6752449247">Download for iOS</a>
-          </div>
-        </section>
-
-        <figure class="tile app-shot">
-          <img src="assets/welm-app.png" alt="Screenshot of the Welm todo list app">
         </figure>
-      </main>
 
-      <footer class="site-footer">
-        <span>&copy; 2026 Welm</span>
-        <a href="support.html">Support</a>
-        <a href="privacy.html">Privacy Policy</a>
-      </footer>
-    </div>
+        <div class="container dot-surface__cta">
+          <div class="cta-panel">
+            <p class="cta-lead">See it for yourself</p>
+            <div class="cta">
+              <button class="try-it" type="button" data-download-open>
+                Download free for iOS
+              </button>
+              <a
+                class="try-it-mobile"
+                href="https://apps.apple.com/us/app/welm/id6752449247"
+              >Download free for iOS</a>
+            </div>
+          </div>
+        </div>
+
+        <footer class="site-footer">
+          <div class="site-footer__inner">
+            <span>&copy; 2026 Welm</span>
+            <a href="support.html">Support</a>
+            <a href="privacy.html">Privacy Policy</a>
+          </div>
+        </footer>
+      </section>
+    </main>
+
     <script src="modal.js"></script>
   </body>
 </html>
