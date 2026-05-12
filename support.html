@@ -7,15 +7,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     >
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body class="legal-page">
+  <body>
     <header class="site-header">
       <div class="site-header__inner">
-        <a class="brand" href="/">Welm.app</a>
+        <a class="brand" href="/">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__wordmark">Welm.app</span>
+        </a>
         <nav aria-label="Site links">
           <button class="header-download" type="button" data-download-open>Download</button>
           <a class="mobile-download" href="https://apps.apple.com/us/app/welm/id6752449247">Download</a>
@@ -25,10 +28,14 @@
 
     <dialog class="download-modal" aria-labelledby="download-modal-title">
       <h2 id="download-modal-title">Download for iOS</h2>
-      <img class="qr" src="assets/app-store-qr.svg" alt="QR code to open Welm in the App Store">
+      <div
+        class="qr"
+        role="img"
+        aria-label="QR code to open Welm in the App Store"
+      ></div>
     </dialog>
 
-    <main class="site-main">
+    <main class="site-main legal-page">
       <div class="container">
         <section aria-labelledby="support-title">
           <h1 id="support-title">Support</h1>
@@ -40,11 +47,15 @@
 
     <footer class="site-footer">
       <div class="site-footer__inner">
-        <span>&copy; 2026 Welm</span>
-        <a href="support.html">Support</a>
-        <a href="privacy.html">Privacy Policy</a>
+        <nav class="site-footer__nav" aria-label="Footer">
+          <button type="button" class="footer-nav-link" data-download-open>Download</button>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="support.html">Support</a>
+        </nav>
+        <p class="site-footer__copyright">Copyright &copy; 2026</p>
       </div>
     </footer>
+
     <script src="modal.js"></script>
   </body>
 </html>
