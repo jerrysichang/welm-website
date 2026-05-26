@@ -61,7 +61,7 @@ body::before {
   z-index: -1;
   background-image: radial-gradient(
     circle at center,
-    rgb(230 230 230 / 0.1) 0.75px,
+    rgb(230 230 230 / 0.15) 0.75px,
     transparent 1px
   );
   background-size: 11px 11px;
@@ -279,15 +279,31 @@ nav {
   padding: 0;
 }
 
+.showcase-halo {
+  position: relative;
+  display: inline-flex;
+  line-height: 0;
+}
+
+.showcase-halo::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -24px -48px -64px;
+  background: radial-gradient(
+    ellipse 92% 88% at 50% 44%,
+    var(--background) 0%,
+    var(--background) 25%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
 .showcase-frame {
   border-radius: 36px;
   overflow: hidden;
   background: var(--phone-frame);
   line-height: 0;
-  box-shadow:
-    0 4px 6px rgb(0 0 0 / 25%),
-    0 22px 40px rgb(0 0 0 / 45%),
-    0 48px 96px var(--background);
 }
 
 .showcase-frame img {
