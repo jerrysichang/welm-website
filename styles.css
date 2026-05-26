@@ -240,11 +240,17 @@ nav {
   text-decoration-thickness: 1px;
 }
 
-.mobile-download,
-.cta-link-mobile {
+.mobile-download {
   display: none;
   font-size: var(--text-medium);
   line-height: var(--line-medium);
+  font-weight: 400;
+}
+
+.cta-link-mobile {
+  display: none;
+  font-size: inherit;
+  line-height: inherit;
   font-weight: 400;
 }
 
@@ -280,7 +286,8 @@ nav {
   line-height: 0;
   box-shadow:
     0 4px 6px rgb(0 0 0 / 25%),
-    0 22px 40px rgb(0 0 0 / 45%);
+    0 22px 40px rgb(0 0 0 / 45%),
+    0 48px 96px var(--background);
 }
 
 .showcase-frame img {
