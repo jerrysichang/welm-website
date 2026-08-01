@@ -53,19 +53,9 @@ body.home-page {
   line-height: var(--line-heading);
 }
 
-/* Full-viewport dot grid from top of page (under header + content) */
+/* Full-viewport dot grid from top of page (under header + content) — hidden */
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background-image: radial-gradient(
-    circle at center,
-    rgb(230 230 230 / 0.15) 0.75px,
-    transparent 1px
-  );
-  background-size: 11px 11px;
-  pointer-events: none;
+  content: none;
 }
 
 button,
@@ -280,12 +270,33 @@ nav {
   line-height: 0;
 }
 
-.showcase img {
-  width: auto;
-  max-width: min(520px, 92vw);
-  height: auto;
+.showcase-stack {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(780px, 98vw);
+}
+
+.showcase-glow,
+.showcase-phone {
+  grid-area: 1 / 1;
   margin: 0;
   display: block;
+}
+
+.showcase-glow {
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+.showcase-phone {
+  position: relative;
+  z-index: 1;
+  width: auto;
+  max-width: min(400px, 58%);
+  height: auto;
 }
 
 .cta-try {
