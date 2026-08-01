@@ -308,13 +308,13 @@ nav {
 
 @media (max-width: 768px) {
   .showcase-stack {
-    /* Wider than the viewport so the glow crops at the edges */
-    width: 160vw;
+    /* Slightly oversized so the glow crops a little but stays visible around the phone */
+    width: 130vw;
   }
 
   .showcase-phone {
     max-width: none;
-    width: 78vw;
+    width: 68vw;
   }
 }
 
