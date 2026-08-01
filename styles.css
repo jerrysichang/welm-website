@@ -1,7 +1,7 @@
 :root {
   --background: #000000;
-  --foreground: #d1d1d1;
-  --foreground-muted: #9a9a9a;
+  --foreground: #ffffff;
+  --foreground-muted: #ffffff;
   --phone-frame: #c4c4c4;
   --container-padding: 24px;
   --page-max: 36rem;
@@ -112,7 +112,7 @@ a {
 }
 
 a:hover {
-  color: #eaeaea;
+  color: #ffffff;
 }
 
 img {
@@ -172,7 +172,7 @@ img {
 }
 
 .brand:hover {
-  color: #eaeaea;
+  color: #ffffff;
 }
 
 .brand:focus-visible {
@@ -198,7 +198,7 @@ img {
 }
 
 .brand:hover .brand__mark {
-  background-color: #eaeaea;
+  background-color: #ffffff;
 }
 
 .brand__wordmark {
@@ -232,7 +232,7 @@ nav {
 }
 
 .header-download:hover {
-  color: #eaeaea;
+  color: #ffffff;
 }
 
 .header-download,
@@ -277,38 +277,12 @@ nav {
   justify-content: center;
   align-items: center;
   padding: 0;
-}
-
-.showcase-halo {
-  position: relative;
-  display: inline-flex;
   line-height: 0;
 }
 
-.showcase-halo::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: -24px -48px -64px;
-  background: radial-gradient(
-    ellipse 92% 88% at 50% 44%,
-    var(--background) 0%,
-    var(--background) 25%,
-    transparent 100%
-  );
-  pointer-events: none;
-}
-
-.showcase-frame {
-  border-radius: 36px;
-  overflow: hidden;
-  background: var(--phone-frame);
-  line-height: 0;
-}
-
-.showcase-frame img {
+.showcase img {
   width: auto;
-  max-width: min(280px, 72vw);
+  max-width: min(520px, 92vw);
   height: auto;
   margin: 0;
   display: block;
@@ -338,7 +312,7 @@ nav {
 }
 
 .cta-link:hover {
-  color: #eaeaea;
+  color: #ffffff;
 }
 
 /* Footer */
