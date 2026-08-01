@@ -306,6 +306,18 @@ nav {
   height: auto;
 }
 
+@media (max-width: 768px) {
+  .showcase-stack {
+    /* Wider than the viewport so the glow crops at the edges */
+    width: 160vw;
+  }
+
+  .showcase-phone {
+    max-width: none;
+    width: 78vw;
+  }
+}
+
 .cta-try {
   margin: clamp(2.5rem, 6vw, 3.75rem) 0 clamp(1.75rem, 4vw, 2.75rem);
   text-align: center;
