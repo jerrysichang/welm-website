@@ -308,13 +308,13 @@ nav {
 
 @media (max-width: 768px) {
   .showcase-stack {
-    /* Slightly oversized so the glow crops a little but stays visible around the phone */
-    width: 130vw;
+    /* Same ~44% phone/glow ratio as desktop; pattern overflows the viewport */
+    width: calc(68vw / 0.44);
   }
 
   .showcase-phone {
     max-width: none;
-    width: 68vw;
+    width: 44%;
   }
 }
 
