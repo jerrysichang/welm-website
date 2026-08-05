@@ -307,9 +307,13 @@ nav {
 }
 
 @media (max-width: 768px) {
+  body.home-page {
+    font-weight: 500;
+  }
+
   .showcase-stack {
     /* Same ~44% phone/glow ratio as desktop; pattern overflows the viewport */
-    width: calc(68vw / 0.44);
+    width: calc(78vw / 0.44);
   }
 
   .showcase-phone {
