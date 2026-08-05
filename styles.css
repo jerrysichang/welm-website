@@ -313,7 +313,7 @@ nav {
 
   .showcase-stack {
     /* Same ~44% phone/glow ratio as desktop; pattern overflows the viewport */
-    width: calc(78vw / 0.44);
+    width: calc(88vw / 0.44);
   }
 
   .showcase-phone {
