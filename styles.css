@@ -307,9 +307,13 @@ nav {
 }
 
 @media (max-width: 768px) {
+  body.home-page {
+    font-weight: 500;
+  }
+
   .showcase-stack {
     /* Same ~44% phone/glow ratio as desktop; pattern overflows the viewport */
-    width: calc(68vw / 0.44);
+    width: calc(78vw / 0.44);
   }
 
   .showcase-phone {
@@ -399,6 +403,19 @@ nav {
 }
 
 .footer-nav-link:hover {
+  color: var(--foreground);
+}
+
+.footer-nav-link-mobile {
+  display: none;
+  font-size: var(--text-small);
+  line-height: var(--line-small);
+  font-weight: 400;
+  color: var(--foreground-muted);
+  text-decoration-thickness: 1px;
+}
+
+.footer-nav-link-mobile:hover {
   color: var(--foreground);
 }
 
@@ -500,12 +517,14 @@ nav {
 
 @media (max-width: 760px) and (hover: none) and (pointer: coarse) {
   .header-download,
-  .cta-link {
+  .cta-link,
+  .footer-nav-link {
     display: none;
   }
 
   .mobile-download,
-  .cta-link-mobile {
+  .cta-link-mobile,
+  .footer-nav-link-mobile {
     display: inline;
     text-decoration: underline;
     text-underline-offset: 5px;
