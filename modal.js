@@ -51,7 +51,8 @@ function dismissDownloadModal() {
 
 if (downloadModal && downloadOpenButtons.length) {
   downloadOpenButtons.forEach((button) => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
       if (isClosingDownloadModal) {
         return;
       }
