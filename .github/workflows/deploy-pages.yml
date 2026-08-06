@@ -1,9 +1,8 @@
 name: Deploy to GitHub Pages
 
-# Disabled automatic push deploy — use branch deploy (Source = Deploy from a
-# branch → main) while Actions deploy-pages is leaving zombie in-progress jobs
-# that block new deploys. Re-enable `push` when ready to use Actions again.
 on:
+  push:
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
