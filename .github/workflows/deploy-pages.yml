@@ -1,8 +1,13 @@
 name: Deploy to GitHub Pages
 
+# Site is published by deploying the main branch directly in repo Pages
+# settings (Source = Deploy from a branch). That path is more reliable
+# for this static HTML site than the Actions deploy-pages queue, which
+# was getting stuck in deployment_queued and timing out.
+#
+# Kept for optional manual re-enable if you switch Pages back to
+# "GitHub Actions" as the source.
 on:
-  push:
-    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -12,7 +17,6 @@ permissions:
 
 concurrency:
   group: pages
-  # Abort superseded runs so a stuck/queued deploy can't pile up behind newer ones
   cancel-in-progress: true
 
 jobs:
