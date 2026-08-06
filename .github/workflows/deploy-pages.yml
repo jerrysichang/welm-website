@@ -12,7 +12,8 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  # Abort superseded runs so a stuck/queued deploy can't pile up behind newer ones
+  cancel-in-progress: true
 
 jobs:
   deploy:
