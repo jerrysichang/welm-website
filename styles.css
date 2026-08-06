@@ -607,6 +607,14 @@ body.modal-open {
   touch-action: none;
 }
 
+/* When modal is open, keep header fixed at top so it remains visible */
+body.modal-open .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
 /* Legal/support document content (scoped to main — header/footer unaffected) */
 .site-main.legal-page section {
   display: grid;
