@@ -438,7 +438,7 @@ nav {
   /* Space between modal outer edge and viewport */
   --modal-inset: clamp(3.5rem, 8vmin, 5.5rem);
   /* Equal inset from modal edge to QR on every side (title floats in top band) */
-  --modal-pad: clamp(3.25rem, 6.5vmin, 4.5rem);
+  --modal-pad: clamp(4.5rem, 9vmin, 6.25rem);
   position: relative;
   box-sizing: border-box;
   width: fit-content;
@@ -520,11 +520,12 @@ nav {
 /* Title sits in the top pad band so it doesn’t throw off equal QR padding */
 .download-modal h2 {
   position: absolute;
-  top: max(1.15rem, calc(var(--modal-pad) * 0.42));
+  top: calc(var(--modal-pad) / 2);
   left: var(--modal-pad);
   right: var(--modal-pad);
   z-index: 1;
   margin: 0;
+  transform: translateY(-50%);
   font-size: var(--text-medium);
   font-weight: 400;
   line-height: var(--line-medium);
