@@ -4,8 +4,13 @@ const downloadCloseButton = downloadModal?.querySelector("[data-download-close]"
 const FADE_MS = 280;
 
 let isClosingDownloadModal = false;
+let scrollPosition = 0;
 
 function lockBodyScroll() {
+  scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+  document.body.style.top = `-${scrollPosition}px`;
+  document.body.style.position = 'fixed';
+  document.body.style.width = '100%';
   document.documentElement.classList.add("modal-open");
   document.body.classList.add("modal-open");
 }
@@ -13,6 +18,10 @@ function lockBodyScroll() {
 function unlockBodyScroll() {
   document.documentElement.classList.remove("modal-open");
   document.body.classList.remove("modal-open");
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  window.scrollTo(0, scrollPosition);
 }
 
 function preventModalScroll(event) {
