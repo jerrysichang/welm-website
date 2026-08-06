@@ -5,22 +5,38 @@ const FADE_MS = 280;
 
 let isClosingDownloadModal = false;
 let scrollPosition = 0;
+let scrollbarWidth = 0;
+
+function getScrollbarWidth() {
+  return window.innerWidth - document.documentElement.clientWidth;
+}
 
 function lockBodyScroll() {
+  // Save current scroll position
   scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-  document.body.style.top = `-${scrollPosition}px`;
-  document.body.style.position = 'fixed';
-  document.body.style.width = '100%';
+  
+  // Calculate scrollbar width to prevent layout shift
+  scrollbarWidth = getScrollbarWidth();
+  
+  // Apply padding to compensate for scrollbar removal
+  if (scrollbarWidth > 0) {
+    document.body.style.paddingRight = `${scrollbarWidth}px`;
+  }
+  
+  // Add classes to enable overflow hidden via CSS
   document.documentElement.classList.add("modal-open");
   document.body.classList.add("modal-open");
 }
 
 function unlockBodyScroll() {
+  // Remove classes
   document.documentElement.classList.remove("modal-open");
   document.body.classList.remove("modal-open");
-  document.body.style.position = '';
-  document.body.style.top = '';
-  document.body.style.width = '';
+  
+  // Remove padding compensation
+  document.body.style.paddingRight = '';
+  
+  // Restore scroll position (in case it changed)
   window.scrollTo(0, scrollPosition);
 }
 
