@@ -433,19 +433,23 @@ nav {
   }
 }
 
-/* Download modal — scales to viewport; title stays fixed size, QR fills space */
+/* Download modal — scales to viewport; equal pad + labels around QR */
 .download-modal {
   /* Space between modal outer edge and viewport */
   --modal-inset: clamp(3.5rem, 8vmin, 5.5rem);
-  /* Equal inset from modal edge to QR on every side (title floats in top band) */
+  /* Equal band on every side of the QR (labels sit centered in each band) */
   --modal-pad: clamp(4.5rem, 9vmin, 6.25rem);
+  --qr-size: min(
+    calc(100vw - (2 * var(--modal-inset)) - (2 * var(--modal-pad))),
+    calc(100dvh - (2 * var(--modal-inset)) - (2 * var(--modal-pad)))
+  );
   position: relative;
   box-sizing: border-box;
   width: fit-content;
   max-width: calc(100vw - (2 * var(--modal-inset)));
   max-height: calc(100dvh - (2 * var(--modal-inset)));
   margin: auto;
-  padding: var(--modal-pad);
+  padding: 0;
   overflow: hidden;
   overscroll-behavior: none;
   background: #242424;
@@ -536,28 +540,53 @@ nav {
   outline-offset: 2px;
 }
 
-/* Title sits in the top pad band so it doesn’t throw off equal QR padding */
-.download-modal h2 {
+/* QR + four edge labels; labels share equal pad on every side */
+.download-modal__stage {
+  position: relative;
+  box-sizing: content-box;
+  width: var(--qr-size);
+  height: var(--qr-size);
+  padding: var(--modal-pad);
+}
+
+.download-modal__label {
   position: absolute;
-  top: calc(var(--modal-pad) / 2);
-  left: var(--modal-pad);
-  right: var(--modal-pad);
-  z-index: 1;
   margin: 0;
-  transform: translateY(-50%);
   font-size: var(--text-medium);
   font-weight: 400;
-  line-height: var(--line-medium);
+  line-height: 1;
+  white-space: nowrap;
   pointer-events: none;
 }
 
+/* Bases face the QR on every side */
+.download-modal__label--top {
+  top: calc(var(--modal-pad) / 2);
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.download-modal__label--right {
+  top: 50%;
+  right: calc(var(--modal-pad) / 2);
+  transform: translate(50%, -50%) rotate(90deg);
+}
+
+.download-modal__label--bottom {
+  bottom: calc(var(--modal-pad) / 2);
+  left: 50%;
+  transform: translate(-50%, 50%) rotate(180deg);
+}
+
+.download-modal__label--left {
+  top: 50%;
+  left: calc(var(--modal-pad) / 2);
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
 .download-modal .qr {
-  /* Square: equal pad on all sides of modal → QR to each edge is --modal-pad */
-  width: min(
-    calc(100vw - (2 * var(--modal-inset)) - (2 * var(--modal-pad))),
-    calc(100dvh - (2 * var(--modal-inset)) - (2 * var(--modal-pad)))
-  );
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
   aspect-ratio: 1;
   flex-shrink: 0;
   background-color: var(--foreground);
