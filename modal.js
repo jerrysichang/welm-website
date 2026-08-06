@@ -6,26 +6,13 @@ const FADE_MS = 280;
 let isClosingDownloadModal = false;
 
 function lockBodyScroll() {
-  const scrollY = window.scrollY;
   document.documentElement.classList.add("modal-open");
   document.body.classList.add("modal-open");
-  document.body.style.position = "fixed";
-  document.body.style.top = `-${scrollY}px`;
-  document.body.style.left = "0";
-  document.body.style.right = "0";
-  document.body.dataset.scrollY = String(scrollY);
 }
 
 function unlockBodyScroll() {
-  const scrollY = Number(document.body.dataset.scrollY || "0");
   document.documentElement.classList.remove("modal-open");
   document.body.classList.remove("modal-open");
-  document.body.style.position = "";
-  document.body.style.top = "";
-  document.body.style.left = "";
-  document.body.style.right = "";
-  delete document.body.dataset.scrollY;
-  window.scrollTo(0, scrollY);
 }
 
 function preventModalScroll(event) {

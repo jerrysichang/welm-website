@@ -571,15 +571,11 @@ nav {
   -webkit-mask-repeat: no-repeat;
 }
 
+html.modal-open,
 body.modal-open {
   overflow: hidden;
+  overscroll-behavior: none;
   touch-action: none;
-  overscroll-behavior: none;
-}
-
-html.modal-open {
-  overflow: hidden;
-  overscroll-behavior: none;
 }
 
 /* Legal/support document content (scoped to main — header/footer unaffected) */
