@@ -466,10 +466,19 @@ nav {
   animation: download-modal-fade-in 0.28s ease;
 }
 
+.download-modal[open].is-closing {
+  pointer-events: none;
+  animation: download-modal-fade-out 0.28s ease forwards;
+}
+
 .download-modal::backdrop {
   background: rgb(0 0 0 / 55%);
   animation: download-modal-fade-in 0.28s ease;
   overscroll-behavior: none;
+}
+
+.download-modal[open].is-closing::backdrop {
+  animation: download-modal-fade-out 0.28s ease forwards;
 }
 
 @keyframes download-modal-fade-in {
@@ -479,6 +488,16 @@ nav {
 
   to {
     opacity: 1;
+  }
+}
+
+@keyframes download-modal-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
   }
 }
 

@@ -1,6 +1,9 @@
 const downloadModal = document.querySelector(".download-modal");
 const downloadOpenButtons = document.querySelectorAll("[data-download-open]");
 const downloadCloseButton = downloadModal?.querySelector("[data-download-close]");
+const FADE_MS = 280;
+
+let isClosingDownloadModal = false;
 
 function lockBodyScroll() {
   const scrollY = window.scrollY;
@@ -29,25 +32,67 @@ function preventModalScroll(event) {
   event.preventDefault();
 }
 
+function dismissDownloadModal() {
+  if (!downloadModal?.open || isClosingDownloadModal) {
+    return;
+  }
+
+  isClosingDownloadModal = true;
+  downloadModal.classList.add("is-closing");
+
+  let finished = false;
+  const finish = () => {
+    if (finished) {
+      return;
+    }
+    finished = true;
+    downloadModal.removeEventListener("animationend", onAnimationEnd);
+    downloadModal.classList.remove("is-closing");
+    isClosingDownloadModal = false;
+    downloadModal.close();
+  };
+
+  const onAnimationEnd = (event) => {
+    if (event.target === downloadModal) {
+      finish();
+    }
+  };
+
+  downloadModal.addEventListener("animationend", onAnimationEnd);
+  window.setTimeout(finish, FADE_MS + 50);
+}
+
 if (downloadModal && downloadOpenButtons.length) {
   downloadOpenButtons.forEach((button) => {
     button.addEventListener("click", () => {
+      if (isClosingDownloadModal) {
+        return;
+      }
+      downloadModal.classList.remove("is-closing");
       lockBodyScroll();
       downloadModal.showModal();
     });
   });
 
   downloadCloseButton?.addEventListener("click", () => {
-    downloadModal.close();
+    dismissDownloadModal();
   });
 
   downloadModal.addEventListener("click", (event) => {
     if (event.target === downloadModal) {
-      downloadModal.close();
+      dismissDownloadModal();
     }
   });
 
+  // Escape closes via cancel; prevent instant close so we can fade out
+  downloadModal.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    dismissDownloadModal();
+  });
+
   downloadModal.addEventListener("close", () => {
+    downloadModal.classList.remove("is-closing");
+    isClosingDownloadModal = false;
     unlockBodyScroll();
   });
 
