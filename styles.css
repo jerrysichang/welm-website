@@ -435,13 +435,19 @@ nav {
 
 /* Download modal — scales to viewport; title stays fixed size, QR fills space */
 .download-modal {
-  --modal-pad: 2.5rem;
-  --modal-title-block: calc(var(--text-medium) * var(--line-medium) + 1.25rem);
+  /* Space between modal outer edge and viewport */
+  --modal-inset: clamp(3.5rem, 8vmin, 5.5rem);
+  /* Equal inset from modal edge to QR on every side (title floats in top band) */
+  --modal-pad: clamp(3.25rem, 6.5vmin, 4.5rem);
   position: relative;
+  box-sizing: border-box;
   width: fit-content;
-  max-width: calc(100vw - 48px);
-  max-height: calc(100dvh - 48px);
+  max-width: calc(100vw - (2 * var(--modal-inset)));
+  max-height: calc(100dvh - (2 * var(--modal-inset)));
+  margin: auto;
   padding: var(--modal-pad);
+  overflow: hidden;
+  overscroll-behavior: none;
   background: #242424;
   color: var(--foreground);
   border: 1px solid rgb(209 209 209 / 22%);
@@ -452,9 +458,9 @@ nav {
 
 .download-modal[open] {
   display: grid;
-  gap: 1.25rem;
-  justify-items: center;
-  align-content: center;
+  place-items: center;
+  overflow: hidden;
+  overscroll-behavior: none;
   text-align: center;
   opacity: 1;
   animation: download-modal-fade-in 0.28s ease;
@@ -463,6 +469,7 @@ nav {
 .download-modal::backdrop {
   background: rgb(0 0 0 / 55%);
   animation: download-modal-fade-in 0.28s ease;
+  overscroll-behavior: none;
 }
 
 @keyframes download-modal-fade-in {
@@ -477,9 +484,9 @@ nav {
 
 .download-modal-close {
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  z-index: 1;
+  top: 0.85rem;
+  right: 0.85rem;
+  z-index: 2;
   display: grid;
   place-items: center;
   width: 2.75rem;
@@ -510,21 +517,29 @@ nav {
   outline-offset: 2px;
 }
 
+/* Title sits in the top pad band so it doesn’t throw off equal QR padding */
 .download-modal h2 {
+  position: absolute;
+  top: max(1.15rem, calc(var(--modal-pad) * 0.42));
+  left: var(--modal-pad);
+  right: var(--modal-pad);
+  z-index: 1;
   margin: 0;
   font-size: var(--text-medium);
   font-weight: 400;
   line-height: var(--line-medium);
+  pointer-events: none;
 }
 
 .download-modal .qr {
-  /* Equal pad on all sides of the modal; title sits in the top band above QR */
+  /* Square: equal pad on all sides of modal → QR to each edge is --modal-pad */
   width: min(
-    calc(100vw - 48px - (2 * var(--modal-pad))),
-    calc(100dvh - 48px - (2 * var(--modal-pad)) - var(--modal-title-block))
+    calc(100vw - (2 * var(--modal-inset)) - (2 * var(--modal-pad))),
+    calc(100dvh - (2 * var(--modal-inset)) - (2 * var(--modal-pad)))
   );
   max-width: 100%;
   aspect-ratio: 1;
+  flex-shrink: 0;
   background-color: var(--foreground);
   mask-image: url("assets/app-store-qr.svg");
   mask-position: center;
@@ -539,6 +554,12 @@ nav {
 body.modal-open {
   overflow: hidden;
   touch-action: none;
+  overscroll-behavior: none;
+}
+
+html.modal-open {
+  overflow: hidden;
+  overscroll-behavior: none;
 }
 
 /* Legal/support document content (scoped to main — header/footer unaffected) */

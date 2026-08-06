@@ -4,6 +4,7 @@ const downloadCloseButton = downloadModal?.querySelector("[data-download-close]"
 
 function lockBodyScroll() {
   const scrollY = window.scrollY;
+  document.documentElement.classList.add("modal-open");
   document.body.classList.add("modal-open");
   document.body.style.position = "fixed";
   document.body.style.top = `-${scrollY}px`;
@@ -14,6 +15,7 @@ function lockBodyScroll() {
 
 function unlockBodyScroll() {
   const scrollY = Number(document.body.dataset.scrollY || "0");
+  document.documentElement.classList.remove("modal-open");
   document.body.classList.remove("modal-open");
   document.body.style.position = "";
   document.body.style.top = "";
@@ -21,6 +23,10 @@ function unlockBodyScroll() {
   document.body.style.right = "";
   delete document.body.dataset.scrollY;
   window.scrollTo(0, scrollY);
+}
+
+function preventModalScroll(event) {
+  event.preventDefault();
 }
 
 if (downloadModal && downloadOpenButtons.length) {
@@ -44,4 +50,8 @@ if (downloadModal && downloadOpenButtons.length) {
   downloadModal.addEventListener("close", () => {
     unlockBodyScroll();
   });
+
+  // dialog can still receive wheel/touch scroll — block it while open
+  downloadModal.addEventListener("wheel", preventModalScroll, { passive: false });
+  downloadModal.addEventListener("touchmove", preventModalScroll, { passive: false });
 }
