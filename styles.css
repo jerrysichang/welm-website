@@ -511,8 +511,9 @@ nav {
   z-index: 2;
   display: grid;
   place-items: center;
-  width: 3.25rem;
-  height: calc(var(--text-heading) * var(--line-heading));
+  width: 4.875rem;
+  height: calc(var(--text-heading) * var(--line-heading) * 1.5);
+  min-height: 3.5rem;
   margin: 0;
   padding: 0;
   border: none;
@@ -524,8 +525,8 @@ nav {
 }
 
 .download-modal-close svg {
-  width: 2.35rem;
-  height: 2.35rem;
+  width: 3.525rem;
+  height: 3.525rem;
   display: block;
 }
 
