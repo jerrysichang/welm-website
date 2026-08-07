@@ -18,12 +18,24 @@ function lockBodyScroll() {
   // Calculate scrollbar width to prevent layout shift
   scrollbarWidth = getScrollbarWidth();
   
-  // Apply padding to compensate for scrollbar removal
+  // Apply position fixed to body with negative top to maintain visual position
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollPosition}px`;
+  document.body.style.left = '0';
+  document.body.style.right = '0';
+  document.body.style.width = '100%';
+  
+  // Compensate for scrollbar removal on both body and header
   if (scrollbarWidth > 0) {
     document.body.style.paddingRight = `${scrollbarWidth}px`;
+    // Also compensate the header to prevent it from shifting
+    const header = document.querySelector('.site-header');
+    if (header) {
+      header.style.paddingRight = `${scrollbarWidth}px`;
+    }
   }
   
-  // Add classes to enable overflow hidden via CSS
+  // Add classes for additional styling if needed
   document.documentElement.classList.add("modal-open");
   document.body.classList.add("modal-open");
 }
@@ -33,10 +45,21 @@ function unlockBodyScroll() {
   document.documentElement.classList.remove("modal-open");
   document.body.classList.remove("modal-open");
   
-  // Remove padding compensation
+  // Remove all inline styles
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.left = '';
+  document.body.style.right = '';
+  document.body.style.width = '';
   document.body.style.paddingRight = '';
   
-  // Restore scroll position (in case it changed)
+  // Remove header padding compensation
+  const header = document.querySelector('.site-header');
+  if (header) {
+    header.style.paddingRight = '';
+  }
+  
+  // Restore scroll position
   window.scrollTo(0, scrollPosition);
 }
 
