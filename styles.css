@@ -657,7 +657,7 @@ body.modal-open {
 
 .site-main.video-page section {
   display: grid;
-  gap: 0.75rem;
+  gap: 2.5rem;
   justify-items: center;
   text-align: center;
 }
