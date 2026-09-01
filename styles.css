@@ -658,13 +658,8 @@ body.modal-open {
 .site-main.video-page section {
   display: grid;
   gap: 0.75rem;
-}
-
-.site-main.video-page h1 {
-  margin: 0;
-  font-size: var(--text-heading);
-  font-weight: 400;
-  line-height: var(--line-heading);
+  justify-items: center;
+  text-align: center;
 }
 
 .site-main.video-page p {
@@ -676,7 +671,7 @@ body.modal-open {
   width: 100%;
   max-width: 22rem;
   max-height: min(70vh, 40rem);
-  margin-top: 0.5rem;
+  margin-inline: auto;
   border-radius: 0.75rem;
   background: #111;
 }
