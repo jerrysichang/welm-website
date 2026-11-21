@@ -354,7 +354,11 @@ nav {
   margin-top: auto;
   width: 100%;
   padding-block: clamp(2rem, 5vw, 3rem);
-  border-top: 1px solid rgb(209 209 209 / 12%);
+  border-top: 1px solid rgb(255 255 255 / 14%);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: #b3b3b3;
 }
 
 .site-footer__inner {
@@ -365,7 +369,7 @@ nav {
   flex-wrap: wrap;
   gap: 1.5rem 2rem;
   width: 100%;
-  padding-inline: var(--edge-padding);
+  padding-inline: clamp(1.25rem, 3vw, 2.75rem);
 }
 
 .site-footer__nav {
@@ -373,12 +377,12 @@ nav {
   flex-direction: column;
   align-items: flex-start;
   gap: 0.5rem;
-  font-size: var(--text-small);
-  line-height: var(--line-small);
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .site-footer__nav a {
-  color: var(--foreground-muted);
+  color: inherit;
 }
 
 .site-footer__nav a:hover {
@@ -392,9 +396,11 @@ nav {
   padding: 0;
   margin: 0;
   background: transparent;
-  color: var(--foreground-muted);
+  color: inherit;
   font: inherit;
-  font-size: var(--text-small);
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
   text-align: left;
   cursor: pointer;
   text-decoration: underline;
@@ -408,10 +414,11 @@ nav {
 
 .footer-nav-link-mobile {
   display: none;
-  font-size: var(--text-small);
-  line-height: var(--line-small);
+  font-size: inherit;
+  line-height: inherit;
   font-weight: 400;
-  color: var(--foreground-muted);
+  color: inherit;
+  letter-spacing: inherit;
   text-decoration-thickness: 1px;
 }
 
@@ -421,9 +428,10 @@ nav {
 
 .site-footer__copyright {
   margin: 0;
-  font-size: var(--text-small);
-  line-height: var(--line-small);
-  color: var(--foreground-muted);
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  color: inherit;
 }
 
 @media (max-width: 560px) {
@@ -616,45 +624,6 @@ body.modal-open {
   touch-action: none;
 }
 
-/* Legal/support document content (scoped to main — header/footer unaffected) */
-.site-main.legal-page section {
-  display: grid;
-  gap: 0.5625rem;
-}
-
-.site-main.legal-page h1 {
-  margin: 0 0 0.75rem;
-  font-size: var(--text-heading);
-  font-weight: 400;
-  line-height: var(--line-heading);
-  color: var(--foreground);
-}
-
-.site-main.legal-page h2 {
-  margin: 1.5rem 0 0;
-  font-size: var(--text-subheading);
-  font-weight: 600;
-  line-height: var(--line-subheading);
-  color: var(--foreground);
-}
-
-.site-main.legal-page section > p:first-of-type {
-  margin-top: 0;
-}
-
-.site-main.legal-page p {
-  margin: 0;
-}
-
-.site-main.legal-page ul {
-  margin: 0;
-  padding-left: 1.2em;
-}
-
-.site-main.legal-page a {
-  color: var(--foreground);
-}
-
 .site-main.video-page section {
   display: grid;
   gap: 2.5rem;
@@ -674,6 +643,433 @@ body.modal-open {
   margin-inline: auto;
   border-radius: 0.75rem;
   background: #111;
+}
+
+/* Essay preview — fixed column + sticky phone rail */
+html:has(body.essay-page) {
+  --background: #121212;
+  background: #121212;
+}
+
+.essay-page {
+  --background: #121212;
+  --foreground: #ffffff;
+  --foreground-muted: #b3b3b3;
+  --text-heading: 1.0625rem;
+  --line-heading: 1.3;
+  --text-medium: 0.875rem;
+  --line-medium: 1.45;
+  --text-small: 0.75rem;
+  --text-subheading: 1rem;
+  --line-subheading: 1.35;
+  --letter-spacing: 0;
+  --edge-padding: 1.5rem;
+  --essay-header-block: calc((1.25rem * 2) + (var(--text-heading) * var(--line-heading)));
+  --essay-main-pad: 2.75rem;
+  --essay-stick-top: calc(var(--essay-header-block) + 0.85rem);
+  /* Small gap before the phone is fully gone, just short of the full-width figure */
+  --essay-fade-lead: 1.5rem;
+  /* Scroll distance over which the phone fades in a straight line */
+  --essay-fade-span: 9rem;
+}
+
+.essay-page .site-main {
+  padding-top: var(--essay-main-pad);
+  padding-bottom: 4rem;
+}
+
+.essay-page .site-header__inner {
+  padding-block: 1.25rem;
+}
+
+.essay-page .brand__mark {
+  width: 1.75rem;
+}
+
+/* Soft falloff under the bar, longer than the header box so the edge is not a hard line */
+.essay-page .site-header {
+  background: none;
+}
+
+.essay-page .site-header::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: calc(100% + 4.25rem);
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    var(--background) 0%,
+    var(--background) 32%,
+    color-mix(in srgb, var(--background) 88%, transparent) 48%,
+    color-mix(in srgb, var(--background) 64%, transparent) 62%,
+    color-mix(in srgb, var(--background) 38%, transparent) 76%,
+    color-mix(in srgb, var(--background) 16%, transparent) 88%,
+    color-mix(in srgb, var(--background) 0%, transparent) 100%
+  );
+}
+
+.doc-layout {
+  width: min(480px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+.doc-layout .essay__body {
+  width: auto;
+}
+
+.doc-layout .essay__body ul {
+  margin: 0 0 0.9rem;
+  padding-left: 1.15em;
+}
+
+.doc-layout .essay__body li + li {
+  margin-top: 0.35rem;
+}
+
+.essay-layout {
+  --essay-width: 672px;
+  --essay-bleed: clamp(72px, 6vw, 128px);
+  display: grid;
+  grid-template-columns: 480px 152px;
+  grid-template-areas:
+    "header rail"
+    "body rail";
+  column-gap: 40px;
+  align-items: start;
+  justify-content: center;
+  width: var(--essay-width);
+  margin-inline: auto;
+}
+
+.essay__header {
+  grid-area: header;
+}
+
+.essay__header h1 {
+  margin: 0;
+  font-size: 1.6875rem;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.essay-entry {
+  margin: 0.7rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #d4d4d4;
+}
+
+.essay-entry i {
+  font-style: italic;
+}
+
+.essay-tools {
+  margin: 0.85rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.essay-tools__sep {
+  margin-inline: 0.4rem;
+}
+
+.essay-tools .cta-link {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.essay__body {
+  grid-area: body;
+  margin-top: 2.25rem;
+  width: 480px;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: #d4d4d4;
+  text-wrap: pretty;
+}
+
+.essay__body p {
+  margin: 0 0 0.9rem;
+}
+
+.essay__body h2 {
+  position: relative;
+  margin: 4.5rem 0 0.75rem;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0;
+  color: #ffffff;
+}
+
+.essay__body > section:first-child h2 {
+  margin-top: 0;
+}
+
+#method,
+.essay-refs li {
+  scroll-margin-top: calc(var(--essay-stick-top) + 0.75rem);
+}
+
+.essay__body h3 {
+  position: relative;
+  margin: 1.35rem 0 0.35rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0;
+  color: #ffffff;
+}
+
+.essay-num {
+  position: absolute;
+  right: calc(100% + 0.85rem);
+  color: #8a8a8a;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Drop the smaller figure so its x-height meets the heading's. */
+.essay__body h2 .essay-num {
+  top: 0.276em;
+}
+
+.essay__body h3 .essay-num {
+  top: 0.285em;
+}
+
+.essay__body strong {
+  font-weight: 500;
+}
+
+.essay-cite {
+  color: inherit;
+  text-decoration: none;
+}
+
+.essay-cite:hover {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.essay-steps {
+  margin: 0 0 0.9rem;
+  padding-left: 1.35rem;
+}
+
+.essay-steps li {
+  margin: 0 0 0.7rem;
+  padding-left: 0.2rem;
+}
+
+.essay-steps li:last-child {
+  margin-bottom: 0;
+}
+
+.essay-refs {
+  list-style: none;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 0.65rem;
+  row-gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+}
+
+.essay-refs li {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #8f8f8f;
+}
+
+.essay-ref__n {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.essay-refs i {
+  font-style: italic;
+}
+
+.essay-figure {
+  margin: 1.5rem 0 1.75rem;
+}
+
+.essay-figure__box {
+  width: 480px;
+  height: 200px;
+  background: #4a4a4a;
+}
+
+.essay-figure figcaption {
+  margin-top: 0.45rem;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: var(--foreground-muted);
+}
+
+/* Fig. 2 crosses both columns and a little past the article edges. */
+.essay-figure--bleed .essay-figure__box {
+  width: calc(var(--essay-width) + (var(--essay-bleed) * 2));
+  height: 560px;
+  aspect-ratio: auto;
+  margin-left: calc(var(--essay-bleed) * -1);
+}
+
+.essay-figure--bleed figcaption {
+  width: 480px;
+  max-width: 100%;
+}
+
+.essay-rail {
+  position: relative;
+  z-index: 1;
+  grid-area: rail;
+  align-self: stretch;
+  width: 152px;
+}
+
+.essay-rail__sticky {
+  position: sticky;
+  top: var(--essay-stick-top);
+}
+
+.essay-rail__shift {
+  width: 100%;
+}
+
+.essay-rail__scale {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+/* Tracks scroll with the page. The phone sticks inside each one, so it is
+   never repositioned from scroll events. */
+.essay-rail__above,
+.essay-rail__below {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.essay-rail__above {
+  top: 0;
+  opacity: 1;
+}
+
+.essay-rail__below {
+  bottom: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.essay-rail.is-clearing .essay-rail__above {
+  pointer-events: none;
+}
+
+.essay-rail.is-arrived .essay-rail__below {
+  pointer-events: auto;
+}
+
+.essay-rail__phone {
+  width: 132px;
+  height: auto;
+  max-width: none;
+  max-height: none;
+}
+
+.essay-rail__cta {
+  margin: 0;
+  text-align: center;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.essay-rail__cta .cta-link {
+  line-height: inherit;
+}
+
+@media (max-width: 960px) {
+  .essay-layout {
+    width: min(480px, calc(100% - 40px));
+    grid-template-columns: minmax(0, 480px);
+    grid-template-areas:
+      "header"
+      "rail"
+      "body";
+    row-gap: 2.5rem;
+  }
+
+  .essay__body,
+  .essay-figure__box,
+  .essay-figure--bleed .essay-figure__box,
+  .essay-figure--bleed figcaption {
+    width: 100%;
+  }
+
+  .essay-figure--bleed .essay-figure__box {
+    height: 200px;
+    aspect-ratio: auto;
+    margin-left: 0;
+  }
+
+  .essay__body {
+    margin-top: 0;
+  }
+
+  .essay-rail {
+    width: 100%;
+  }
+
+  .essay-rail__above,
+  .essay-rail__below {
+    position: static;
+    top: auto;
+    height: auto;
+    bottom: auto;
+    opacity: 1;
+    pointer-events: auto;
+    transition: none;
+  }
+
+  .essay-rail__below {
+    display: none;
+  }
+
+  .essay-rail__sticky {
+    position: static;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .essay-layout {
+    width: min(480px, calc(100% - 3.5rem - 1.25rem));
+    margin-left: 3.5rem;
+    margin-right: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .essay-page .site-header {
+    padding-bottom: 0;
+  }
 }
 
 @media (max-width: 760px) and (hover: none) and (pointer: coarse) {

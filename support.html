@@ -9,21 +9,20 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#121212">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     >
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
+  <body class="essay-page">
     <header class="site-header">
       <div class="site-header__inner">
-        <a class="brand" href="/">
+        <a class="brand" href="/" aria-label="Welm.app">
           <span class="brand__mark" aria-hidden="true"></span>
-          <span class="brand__wordmark">Welm.app</span>
         </a>
         <nav aria-label="Site links">
           <button class="header-download" type="button" data-download-open>Download</button>
@@ -73,14 +72,16 @@
       </div>
     </dialog>
 
-    <main class="site-main legal-page">
-      <div class="container">
-        <section aria-labelledby="support-title">
+    <main class="site-main">
+      <article class="doc-layout">
+        <header class="essay__header">
           <h1 id="support-title">Support</h1>
+        </header>
+        <div class="essay__body">
           <p>Need help or have a question? Send us an email:</p>
           <p><a href="mailto:hello@welm.app">hello@welm.app</a></p>
-        </section>
-      </div>
+        </div>
+      </article>
     </main>
 
     <footer class="site-footer">
