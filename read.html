@@ -163,17 +163,23 @@
               In a study of real-world habit formation, behaviours repeated daily in a consistent context became more automatic along an asymptotic curve. The time to reach a plateau varied widely between people <a class="essay-cite" href="#ref-10">[10]</a>. The key insight for this loop is to make it repetitive and simple: a consistent cue, a short routine and a visible result.
             </p>
             <figure class="essay-figure essay-figure--bleed">
-              <div class="essay-figure__box" role="img" aria-label="A short list: two focus blocks, an empty slot, and one block rising into it">
-                <div class="loop">
-                  <span class="loop__block loop__block--a"></span>
-                  <span class="loop__block loop__block--b"></span>
-                  <span class="loop__slot"></span>
-                  <span class="loop__block loop__block--c"></span>
-                  <span class="loop__block loop__block--d"></span>
-                  <span class="loop__block loop__block--e"></span>
+              <div class="essay-figure__box" role="img" aria-label="Three sections of cards. The top cards are white and the bottom section is the longest. Cards rise through the sections. When a focus card is completed, a new card fades in at the bottom.">
+                <div class="loop" aria-hidden="true">
+                  <span class="loop__block"></span>
+                  <span class="loop__block"></span>
+                  <span class="loop__block"></span>
+                  <span class="loop__block"></span>
+                  <span class="loop__block"></span>
+                  <span class="loop__block"></span>
+                  <span class="loop__block"></span>
+                  <span class="loop__block"></span>
+                  <span class="loop__block"></span>
+                  <span class="loop__block"></span>
+                  <span class="loop__block"></span>
+                  <span class="loop__block"></span>
                 </div>
               </div>
-              <figcaption>Fig. 2. The loop as a short list. Two focus blocks, an empty slot, and one block promoted into it.</figcaption>
+              <figcaption>Fig. 2. Three sections of a list. Focus cards are white, and the bottom section holds the rest. One card moves at a time. Completing a focus card makes room for a new one at the bottom.</figcaption>
             </figure>
           </section>
 
@@ -565,6 +571,153 @@
         if (desktop.addEventListener) desktop.addEventListener("change", measure);
         var img = phone.querySelector("img");
         if (img) img.addEventListener("load", measure);
+      })();
+    </script>
+    <script>
+      (function () {
+        var loop = document.querySelector(".essay-figure--bleed .loop");
+        if (!loop) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        var groups = [[], [], []];
+        var pool = [].slice.call(loop.children);
+        var moveMs = 720;
+        var step = 0;
+        var timer = 0;
+
+        /* One card changes section per beat. Completing a focus card also
+           adds one at the bottom, so the third section stays the longest.
+           The stack always reflows to the new section heights. */
+        var beats = [
+          { t: "up", from: 1, pause: 520 },
+          { t: "up", from: 2, pause: 420 },
+          { t: "out", pause: 680 },
+          { t: "out", pause: 860 },
+          { t: "up", from: 2, pause: 400 },
+          { t: "up", from: 1, pause: 640 },
+          { t: "out", pause: 780 },
+          { t: "up", from: 1, pause: 460 },
+          { t: "out", pause: 920 },
+          { t: "up", from: 2, pause: 500 },
+          { t: "up", from: 1, pause: 700 },
+          { t: "up", from: 2, pause: 440 }
+        ];
+
+        function metrics() {
+          var cs = getComputedStyle(loop);
+          return {
+            card: parseFloat(cs.getPropertyValue("--card")) || 36,
+            gap: parseFloat(cs.getPropertyValue("--gap")) || 8,
+            section: parseFloat(cs.getPropertyValue("--section")) || 36
+          };
+        }
+
+        function spots() {
+          var m = metrics();
+          var stride = m.card + m.gap;
+          var y = 0;
+          var list = [];
+          for (var s = 0; s < 3; s++) {
+            for (var i = 0; i < groups[s].length; i++) {
+              list.push({ card: groups[s][i], y: y, section: s });
+              y += stride;
+            }
+            if (s < 2 && groups[s].length) y += m.section;
+          }
+          return { list: list, m: m, stride: stride, bottom: y };
+        }
+
+        function place(card, y, section, instant) {
+          if (instant) card.style.transition = "none";
+          card.style.setProperty("--y", y + "px");
+          card.style.backgroundColor = section === 0 ? "#ffffff" : "#2a2a2a";
+          card.style.opacity = "1";
+          if (instant) {
+            card.offsetHeight;
+            card.style.transition = "";
+          }
+        }
+
+        function lift(card) {
+          card.classList.remove("is-lift");
+          card.offsetWidth;
+          card.classList.add("is-lift");
+          setTimeout(function () { card.classList.remove("is-lift"); }, moveMs);
+        }
+
+        function layout(instant) {
+          spots().list.forEach(function (item) {
+            place(item.card, item.y, item.section, instant);
+          });
+        }
+
+        function hide(card) {
+          card.classList.remove("is-lift");
+          card.style.transition = "none";
+          card.style.opacity = "0";
+          card.offsetHeight;
+          card.style.transition = "";
+          pool.push(card);
+        }
+
+        var seed = [2, 2, 5];
+        for (var s = 0; s < 3; s++) {
+          for (var n = 0; n < seed[s]; n++) groups[s].push(pool.pop());
+        }
+        layout(true);
+        pool.forEach(function (card) {
+          var parked = spots().bottom + 8;
+          card.style.transition = "none";
+          card.style.opacity = "0";
+          card.style.setProperty("--y", parked + "px");
+          card.offsetHeight;
+          card.style.transition = "";
+        });
+
+        function play() {
+          var beat = beats[step % beats.length];
+          var jitter = [0, 60, -40, 30, 80, -20, 50, -30][step % 8];
+          step += 1;
+          if (beat.t === "up") {
+            var src = groups[beat.from];
+            var card = src.length > 1 ? src.pop() : null;
+            if (card) {
+              groups[beat.from - 1].push(card);
+              layout(false);
+              lift(card);
+            }
+          } else if (beat.t === "out") {
+            var gone = groups[0].length > 1 ? groups[0].shift() : null;
+            var fresh = pool.pop();
+            if (gone) {
+              var rise = (metrics().card || 36) * 0.7;
+              var current = gone.getBoundingClientRect().top - loop.getBoundingClientRect().top;
+              gone.style.setProperty("--y", (current - rise) + "px");
+              gone.style.opacity = "0";
+              lift(gone);
+              setTimeout(function () { hide(gone); }, moveMs);
+            }
+            if (fresh) groups[2].push(fresh);
+            layout(false);
+            if (fresh) {
+              var target = spots().list.filter(function (item) { return item.card === fresh; })[0];
+              var from = target.y + metrics().card * 0.45;
+              fresh.style.transition = "none";
+              fresh.style.setProperty("--y", from + "px");
+              fresh.style.backgroundColor = "#2a2a2a";
+              fresh.style.opacity = "0";
+              fresh.offsetHeight;
+              fresh.style.transition = "";
+              requestAnimationFrame(function () {
+                place(fresh, target.y, 2, false);
+              });
+            }
+          }
+          timer = setTimeout(play, moveMs + beat.pause + jitter);
+        }
+
+        timer = setTimeout(play, 900);
+        window.addEventListener("resize", function () { layout(true); });
       })();
     </script>
   </body>

@@ -905,14 +905,15 @@ html:has(body.essay-page) {
 }
 
 .essay-figure {
-  margin: 1.5rem 0 1.75rem;
+  margin: 1.75rem 0;
+  padding: 1.25rem 0 1.5rem;
 }
 
 .essay-figure__box {
   width: 480px;
   height: 200px;
-  background: #1e1b1a;
-  border: 0.5px solid rgb(67 63 60 / 45%);
+  background: #171717;
+  border: 0.5px solid rgb(115 115 115 / 45%);
   border-radius: 16px;
   corner-shape: squircle;
   overflow: hidden;
@@ -936,128 +937,81 @@ html:has(body.essay-page) {
   margin-left: calc(var(--essay-bleed) * -1);
 }
 
+.essay-figure--bleed {
+  padding: 2rem 0 2.25rem;
+}
+
 .essay-figure--bleed figcaption {
   width: 480px;
   max-width: 100%;
 }
 
-/* Fig. 2. Two focus blocks, an empty slot, then the rest of the list.
-   A block is added, then one rises into the slot. */
-.loop {
-  --rise: -84px;
-  position: relative;
-  width: min(260px, 64%);
-  height: 340px;
+/* Fig. 2. Three sections. A script moves one card at a time.
+   --x arcs left and back. The arc eases in and out, and it is finished
+   halfway through the move so it does not keep sliding while the card settles. */
+@property --x {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
 }
 
-.loop__block,
-.loop__slot {
+@property --y {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+.loop {
+  --card: 36px;
+  --gap: 8px;
+  --section: 36px;
+  --stride: calc(var(--card) + var(--gap));
+  --focus: 0px;
+  --next: calc((var(--stride) * 2) + var(--section));
+  --later: calc((var(--stride) * 4) + (var(--section) * 2));
+  --sway: 12px;
+  --shade: 18px;
+  position: relative;
+  width: min(240px, 64%);
+  height: 480px;
+}
+
+.loop__block {
+  --y: 0px;
   position: absolute;
+  top: 0;
   left: 0;
   right: 0;
-  height: 44px;
+  height: var(--card);
   border-radius: 12px;
-}
-
-.loop__block--a,
-.loop__block--b {
-  background: #ffffff;
-}
-
-.loop__block--a {
-  top: 0;
-}
-
-.loop__block--b {
-  top: 56px;
-}
-
-.loop__slot {
-  top: 112px;
-  border: 1px solid rgb(255 255 255 / 16%);
-  animation: loop-slot 8.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-.loop__block--c,
-.loop__block--d,
-.loop__block--e {
-  background: transparent;
-  border: 1px solid rgb(255 255 255 / 28%);
-}
-
-.loop__block--c {
-  top: 196px;
-  animation: loop-rise 8.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
-}
-
-.loop__block--d {
-  top: 252px;
-}
-
-.loop__block--e {
-  top: 308px;
+  background: #2a2a2a;
   opacity: 0;
-  animation: loop-add 8.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform: translate(calc(var(--x) * var(--sway) * -1), var(--y));
+  box-shadow: 0 calc(var(--x) * var(--sway) * 0.65) calc(var(--x) * var(--shade)) rgb(0 0 0 / calc(var(--x) * 0.55));
+  transition:
+    --y 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes loop-add {
-  0%,
-  8% {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-
-  18%,
-  74% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  88%,
-  100% {
-    opacity: 0;
-    transform: translateY(12px);
-  }
+.loop__block.is-lift {
+  z-index: 2;
+  animation: loop-lift 0.72s linear;
 }
 
-@keyframes loop-rise {
-  0%,
-  30% {
-    transform: translateY(0);
-    background-color: transparent;
-    border-color: rgb(255 255 255 / 28%);
-  }
-
-  46%,
-  70% {
-    transform: translateY(var(--rise));
-    background-color: #ffffff;
-    border-color: transparent;
-  }
-
-  86%,
-  100% {
-    transform: translateY(0);
-    background-color: transparent;
-    border-color: rgb(255 255 255 / 28%);
-  }
-}
-
-@keyframes loop-slot {
-  0%,
-  34% {
-    opacity: 1;
-  }
-
-  46%,
-  70% {
-    opacity: 0;
-  }
-
-  86%,
-  100% {
-    opacity: 1;
-  }
+@keyframes loop-lift {
+  0% { --x: 0; }
+  5% { --x: 0.095; }
+  10% { --x: 0.345; }
+  15% { --x: 0.655; }
+  20% { --x: 0.905; }
+  25% { --x: 1; }
+  30% { --x: 0.905; }
+  35% { --x: 0.655; }
+  40% { --x: 0.345; }
+  45% { --x: 0.095; }
+  50% { --x: 0; }
+  100% { --x: 0; }
 }
 
 .essay-rail {
@@ -1149,41 +1103,23 @@ html:has(body.essay-page) {
   }
 
   .essay-figure--bleed .essay-figure__box {
-    height: 200px;
+    height: 280px;
     aspect-ratio: auto;
     margin-left: 0;
   }
 
   .loop {
-    --rise: -40px;
-    width: min(200px, 72%);
-    height: 168px;
+    --card: 16px;
+    --gap: 4px;
+    --section: 12px;
+    --sway: 5px;
+    --shade: 8px;
+    width: min(168px, 74%);
+    height: 230px;
   }
 
-  .loop__block,
-  .loop__slot {
-    height: 22px;
-    border-radius: 8px;
-  }
-
-  .loop__block--b {
-    top: 28px;
-  }
-
-  .loop__slot {
-    top: 56px;
-  }
-
-  .loop__block--c {
-    top: 96px;
-  }
-
-  .loop__block--d {
-    top: 124px;
-  }
-
-  .loop__block--e {
-    top: 152px;
+  .loop__block {
+    border-radius: 6px;
   }
 
   .essay__body {
@@ -1237,10 +1173,10 @@ html:has(body.essay-page) {
   justify-content: center;
   height: auto;
   min-height: 440px;
-  margin: 1.2rem 0 1.7rem;
+  margin: 2.5rem 0 2.75rem;
   padding: 28px 24px;
-  background: #1e1b1a;
-  border: 0.5px solid rgb(67 63 60 / 45%);
+  background: #171717;
+  border: 0.5px solid rgb(115 115 115 / 45%);
   border-radius: 16px;
   corner-shape: squircle;
   color: #fefdfb;
@@ -1722,10 +1658,10 @@ html:has(body.essay-page) {
   /* Stops sampled from cubic-bezier(0.4, 0, 0.2, 1). Covers the button only. */
   background: linear-gradient(
     to top,
-    #1e1b1a 0%,
-    rgb(30 27 26 / 86%) 28%,
-    rgb(30 27 26 / 45%) 58%,
-    rgb(30 27 26 / 12%) 80%,
+    #171717 0%,
+    rgb(23 23 23 / 86%) 28%,
+    rgb(23 23 23 / 45%) 58%,
+    rgb(23 23 23 / 12%) 80%,
     transparent 100%
   );
   animation: wash 8.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
@@ -2064,9 +2000,7 @@ html:has(body.essay-page) {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .loop__block--c,
-  .loop__block--e,
-  .loop__slot,
+  .loop__block,
   .kit__track,
   .kit__thumb,
   .kit__pill,
@@ -2090,13 +2024,32 @@ html:has(body.essay-page) {
     animation: none;
   }
 
-  .loop__block--e {
+  .loop__block {
     opacity: 1;
-    transform: none;
+    background-color: #2a2a2a;
+    transition: none;
   }
 
-  .loop__slot {
-    opacity: 1;
+  .loop__block:nth-child(1) {
+    transform: translateY(var(--focus));
+    background-color: #ffffff;
+  }
+
+  .loop__block:nth-child(2) {
+    transform: translateY(calc(var(--focus) + var(--stride)));
+    background-color: #ffffff;
+  }
+
+  .loop__block:nth-child(3) { transform: translateY(var(--next)); }
+  .loop__block:nth-child(4) { transform: translateY(calc(var(--next) + var(--stride))); }
+  .loop__block:nth-child(5) { transform: translateY(var(--later)); }
+  .loop__block:nth-child(6) { transform: translateY(calc(var(--later) + var(--stride))); }
+  .loop__block:nth-child(7) { transform: translateY(calc(var(--later) + (var(--stride) * 2))); }
+  .loop__block:nth-child(8) { transform: translateY(calc(var(--later) + (var(--stride) * 3))); }
+  .loop__block:nth-child(9) { transform: translateY(calc(var(--later) + (var(--stride) * 4))); }
+
+  .loop__block:nth-child(n + 10) {
+    opacity: 0;
   }
 
   .kit__thumb {
