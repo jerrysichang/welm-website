@@ -82,7 +82,7 @@
         <header class="essay__header">
           <h1>Welmströmung</h1>
           <p class="essay-entry">
-            Welmströmung (<i>n.</i>) /ˈvɛlmˌʃtrøːmʊŋ/ A steady current of deliberate action.
+            (<i>n.</i>) /ˈvɛlmˌʃtrøːmʊŋ/ A steady current of deliberate action.
           </p>
         </header>
 
@@ -163,8 +163,17 @@
               In a study of real-world habit formation, behaviours repeated daily in a consistent context became more automatic along an asymptotic curve. The time to reach a plateau varied widely between people <a class="essay-cite" href="#ref-10">[10]</a>. The key insight for this loop is to make it repetitive and simple: a consistent cue, a short routine and a visible result.
             </p>
             <figure class="essay-figure essay-figure--bleed">
-              <div class="essay-figure__box" role="img" aria-label="Placeholder for a circular diagram of the loop"></div>
-              <figcaption>Fig. 2. The loop as three words on a circle (Focus, Add, Prioritise) with thin arrows.</figcaption>
+              <div class="essay-figure__box" role="img" aria-label="A short list: two focus blocks, an empty slot, and one block rising into it">
+                <div class="loop">
+                  <span class="loop__block loop__block--a"></span>
+                  <span class="loop__block loop__block--b"></span>
+                  <span class="loop__slot"></span>
+                  <span class="loop__block loop__block--c"></span>
+                  <span class="loop__block loop__block--d"></span>
+                  <span class="loop__block loop__block--e"></span>
+                </div>
+              </div>
+              <figcaption>Fig. 2. The loop as a short list. Two focus blocks, an empty slot, and one block promoted into it.</figcaption>
             </figure>
           </section>
 
@@ -181,6 +190,8 @@
                   <span class="kit__thumb"></span>
                 </div>
                 <span class="kit__badge">Due</span>
+                <svg class="kit__star" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.6 9.7 5.4l4.2.4-3.2 2.8.9 4.1L8 10.7 4.4 12.7l.9-4.1L2.1 5.8l4.2-.4L8 1.6Z"/></svg>
+                <span class="kit__chip">Thu</span>
                 <div class="kit__selector">
                   <span class="kit__pill"></span>
                   <span>Now</span>
@@ -413,8 +424,21 @@
              phone is already there when the page is at the top. */
           above.style.top = (pin - railDoc) + "px";
           above.style.height = Math.max(phoneH, bounds.top - pin + phoneH + lead + fadeSpan) + "px";
-          below.style.top = (bounds.bottom - railDoc) + "px";
+          /* Come back in level with the heading under the figure, so the
+             phone has the same gap beneath the image as that heading.
+             The ease is measured from this same line, so it still falls
+             behind and creeps into the stick point. */
+          resumeTop = resumeDoc(scrollY);
+          below.style.top = ((resumeTop == null ? bounds.bottom : resumeTop) - railDoc) + "px";
           placeStick();
+        }
+
+        function resumeDoc(scrollY) {
+          var section = block.closest("section");
+          var next = section && section.nextElementSibling;
+          var head = next && next.querySelector("h2");
+          if (!head) return null;
+          return head.getBoundingClientRect().top + scrollY;
         }
 
         function collisionDoc(scrollY) {
@@ -430,6 +454,7 @@
         var belowShift = below.querySelector(".essay-rail__shift");
         var boundsTop = 0;
         var boundsBottom = 0;
+        var resumeTop = null;
         var aboveShiftY = 0;
         var belowShiftY = 0;
         var aboveOpacity = -1;
@@ -490,7 +515,7 @@
           var belowP = topViewport < pin ? clamp01((roomBelow - phoneH) / fadeSpan) : 0;
           aboveOpacity = paintFade(above, aboveP, aboveOpacity);
           belowOpacity = paintFade(below, belowP, belowOpacity);
-          easeBelow(bottomViewport);
+          easeBelow((resumeTop == null ? boundsBottom : resumeTop) - scrollY);
           above.style.pointerEvents = aboveP > 0 ? "" : "none";
           below.style.pointerEvents = belowP > 0 ? "auto" : "none";
           var nextClearing = aboveP <= 0;

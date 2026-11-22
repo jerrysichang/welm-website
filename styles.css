@@ -798,7 +798,7 @@ html:has(body.essay-page) {
 
 .essay__body h2 {
   position: relative;
-  margin: 4.5rem 0 0.75rem;
+  margin: 7rem 0 0.75rem;
   font-size: 1.1875rem;
   font-weight: 500;
   line-height: 1.35;
@@ -911,7 +911,11 @@ html:has(body.essay-page) {
 .essay-figure__box {
   width: 480px;
   height: 200px;
-  background: #4a4a4a;
+  background: #1e1b1a;
+  border: 0.5px solid rgb(67 63 60 / 45%);
+  border-radius: 16px;
+  corner-shape: squircle;
+  overflow: hidden;
 }
 
 .essay-figure figcaption {
@@ -923,6 +927,9 @@ html:has(body.essay-page) {
 
 /* Fig. 2 crosses both columns and a little past the article edges. */
 .essay-figure--bleed .essay-figure__box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: calc(var(--essay-width) + (var(--essay-bleed) * 2));
   height: 560px;
   aspect-ratio: auto;
@@ -932,6 +939,125 @@ html:has(body.essay-page) {
 .essay-figure--bleed figcaption {
   width: 480px;
   max-width: 100%;
+}
+
+/* Fig. 2. Two focus blocks, an empty slot, then the rest of the list.
+   A block is added, then one rises into the slot. */
+.loop {
+  --rise: -84px;
+  position: relative;
+  width: min(260px, 64%);
+  height: 340px;
+}
+
+.loop__block,
+.loop__slot {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 44px;
+  border-radius: 12px;
+}
+
+.loop__block--a,
+.loop__block--b {
+  background: #ffffff;
+}
+
+.loop__block--a {
+  top: 0;
+}
+
+.loop__block--b {
+  top: 56px;
+}
+
+.loop__slot {
+  top: 112px;
+  border: 1px solid rgb(255 255 255 / 16%);
+  animation: loop-slot 8.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.loop__block--c,
+.loop__block--d,
+.loop__block--e {
+  background: transparent;
+  border: 1px solid rgb(255 255 255 / 28%);
+}
+
+.loop__block--c {
+  top: 196px;
+  animation: loop-rise 8.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.loop__block--d {
+  top: 252px;
+}
+
+.loop__block--e {
+  top: 308px;
+  opacity: 0;
+  animation: loop-add 8.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes loop-add {
+  0%,
+  8% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  18%,
+  74% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  88%,
+  100% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@keyframes loop-rise {
+  0%,
+  30% {
+    transform: translateY(0);
+    background-color: transparent;
+    border-color: rgb(255 255 255 / 28%);
+  }
+
+  46%,
+  70% {
+    transform: translateY(var(--rise));
+    background-color: #ffffff;
+    border-color: transparent;
+  }
+
+  86%,
+  100% {
+    transform: translateY(0);
+    background-color: transparent;
+    border-color: rgb(255 255 255 / 28%);
+  }
+}
+
+@keyframes loop-slot {
+  0%,
+  34% {
+    opacity: 1;
+  }
+
+  46%,
+  70% {
+    opacity: 0;
+  }
+
+  86%,
+  100% {
+    opacity: 1;
+  }
 }
 
 .essay-rail {
@@ -1028,6 +1154,38 @@ html:has(body.essay-page) {
     margin-left: 0;
   }
 
+  .loop {
+    --rise: -40px;
+    width: min(200px, 72%);
+    height: 168px;
+  }
+
+  .loop__block,
+  .loop__slot {
+    height: 22px;
+    border-radius: 8px;
+  }
+
+  .loop__block--b {
+    top: 28px;
+  }
+
+  .loop__slot {
+    top: 56px;
+  }
+
+  .loop__block--c {
+    top: 96px;
+  }
+
+  .loop__block--d {
+    top: 124px;
+  }
+
+  .loop__block--e {
+    top: 152px;
+  }
+
   .essay__body {
     margin-top: 0;
   }
@@ -1077,9 +1235,10 @@ html:has(body.essay-page) {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 200px;
+  height: auto;
+  min-height: 440px;
   margin: 1.2rem 0 1.7rem;
-  padding: 20px;
+  padding: 28px 24px;
   background: #1e1b1a;
   border: 0.5px solid rgb(67 63 60 / 45%);
   border-radius: 16px;
@@ -1097,8 +1256,9 @@ html:has(body.essay-page) {
 
 .kit {
   position: relative;
-  width: min(320px, 100%);
-  height: 136px;
+  width: min(400px, 100%);
+  height: 360px;
+  color: #ffffff;
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
@@ -1107,7 +1267,7 @@ html:has(body.essay-page) {
 
 .kit__toggle {
   position: absolute;
-  top: 0;
+  top: 4px;
   left: 0;
   width: 52px;
   height: 32px;
@@ -1122,41 +1282,62 @@ html:has(body.essay-page) {
 
 .kit__track {
   inset: 0;
-  background: #1e1b1a;
-  border: 0.5px solid #433f3c;
+  background: #171717;
+  border: 1px solid #737373;
   animation: kit-track 8.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .kit__thumb {
-  top: 0;
-  left: 0;
-  width: 32px;
-  height: 32px;
-  background: #5f5a56;
-  border: 0.5px solid #7b756f;
-  box-shadow: 0 2px 3px rgb(0 0 0 / 45%);
+  top: 2px;
+  left: 2px;
+  width: 28px;
+  height: 28px;
+  background: #ffffff;
   animation: kit-thumb 8.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
-.kit__badge {
+.kit__badge,
+.kit__chip {
   position: absolute;
-  top: 4px;
-  right: 0;
   display: flex;
   align-items: center;
   height: 24px;
-  padding: 0 4px;
-  background: #383430;
-  border: 0.5px solid #7b756f;
-  border-radius: 4px;
-  corner-shape: squircle;
+  padding: 0 8px;
+  border-radius: 8px;
   font-size: 12px;
-  line-height: 16px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.kit__badge {
+  top: 8px;
+  right: 0;
+  background: #ffffff;
+  color: #000000;
+}
+
+.kit__chip {
+  top: 88px;
+  right: 0;
+  border: 1.25px solid #ffffff;
+  color: #ffffff;
+}
+
+.kit__star {
+  position: absolute;
+  top: 86px;
+  left: 12px;
+  width: 22px;
+  height: 22px;
+  fill: transparent;
+  stroke: #ffffff;
+  stroke-width: 1.15;
+  animation: kit-star 8.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .kit__selector {
   position: absolute;
-  top: 44px;
+  top: 156px;
   left: 0;
   right: 0;
   display: grid;
@@ -1165,8 +1346,8 @@ html:has(body.essay-page) {
   height: 48px;
   padding: 4px;
   gap: 4px;
-  background: #080706;
-  border: 0.5px solid #433f3c;
+  background: #171717;
+  border: 1px solid #737373;
   border-radius: 999px;
   corner-shape: squircle;
 }
@@ -1174,7 +1355,7 @@ html:has(body.essay-page) {
 .kit__selector > span:not(.kit__pill) {
   position: relative;
   z-index: 1;
-  color: #ada7a2;
+  color: #a3a3a3;
   font-weight: 400;
   text-align: center;
 }
@@ -1186,11 +1367,9 @@ html:has(body.essay-page) {
   bottom: 4px;
   left: 4px;
   width: calc((100% - 16px) / 3);
-  background: #433f3c;
-  border: 1px solid #5f5a56;
+  background: #ffffff;
   border-radius: 999px;
   corner-shape: squircle;
-  box-shadow: 0 2px 3px rgb(0 0 0 / 45%);
   animation: kit-pill 8.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
@@ -1208,24 +1387,23 @@ html:has(body.essay-page) {
 
 .kit__button {
   position: absolute;
-  bottom: 0;
-  left: 8px;
+  bottom: 8px;
+  left: 0;
   display: flex;
   align-items: center;
   height: 32px;
-  padding: 0 12px;
-  background: #433f3c;
-  border: 0.5px solid #5f5a56;
+  padding: 0 14px;
+  background: #ffffff;
   border-radius: 999px;
   corner-shape: squircle;
-  box-shadow: 0 2px 3px rgb(0 0 0 / 45%);
+  color: #000000;
   animation: kit-press 8.4s linear infinite;
 }
 
 .kit__pages {
   position: absolute;
   right: 4px;
-  bottom: 12px;
+  bottom: 16px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1233,12 +1411,11 @@ html:has(body.essay-page) {
 
 .kit__pages i {
   display: block;
-  width: 8px;
-  height: 8px;
-  background: #433f3c;
-  border: 1px solid #433f3c;
-  border-radius: 4px;
-  corner-shape: squircle;
+  width: 6px;
+  height: 6px;
+  background: transparent;
+  border: 1px solid #737373;
+  border-radius: 99px;
 }
 
 .kit__pages i:nth-child(1) {
@@ -1257,36 +1434,39 @@ html:has(body.essay-page) {
   0%,
   10% {
     transform: translateX(0);
+    background-color: #ffffff;
   }
 
   24%,
   74% {
     transform: translateX(20px);
+    background-color: #000000;
   }
 
   90%,
   100% {
     transform: translateX(0);
+    background-color: #ffffff;
   }
 }
 
 @keyframes kit-track {
   0%,
   18% {
-    background-color: #1e1b1a;
-    border-color: #433f3c;
+    background-color: #171717;
+    border-color: #737373;
   }
 
   28%,
   74% {
-    background-color: #f2eeec;
-    border-color: #f2eeec;
+    background-color: #ffffff;
+    border-color: #ffffff;
   }
 
   90%,
   100% {
-    background-color: #1e1b1a;
-    border-color: #433f3c;
+    background-color: #171717;
+    border-color: #737373;
   }
 }
 
@@ -1315,19 +1495,19 @@ html:has(body.essay-page) {
 @keyframes kit-label-a {
   0%,
   34% {
-    color: #fefdfb;
+    color: #000000;
     font-weight: 500;
   }
 
   42%,
   84% {
-    color: #ada7a2;
+    color: #a3a3a3;
     font-weight: 400;
   }
 
   92%,
   100% {
-    color: #fefdfb;
+    color: #000000;
     font-weight: 500;
   }
 }
@@ -1335,19 +1515,19 @@ html:has(body.essay-page) {
 @keyframes kit-label-b {
   0%,
   34% {
-    color: #ada7a2;
+    color: #a3a3a3;
     font-weight: 400;
   }
 
   42%,
   56% {
-    color: #fefdfb;
+    color: #000000;
     font-weight: 500;
   }
 
   64%,
   100% {
-    color: #ada7a2;
+    color: #a3a3a3;
     font-weight: 400;
   }
 }
@@ -1355,19 +1535,19 @@ html:has(body.essay-page) {
 @keyframes kit-label-c {
   0%,
   56% {
-    color: #ada7a2;
+    color: #a3a3a3;
     font-weight: 400;
   }
 
   64%,
   80% {
-    color: #fefdfb;
+    color: #000000;
     font-weight: 500;
   }
 
   90%,
   100% {
-    color: #ada7a2;
+    color: #a3a3a3;
     font-weight: 400;
   }
 }
@@ -1391,69 +1571,79 @@ html:has(body.essay-page) {
 @keyframes kit-dot-a {
   0%,
   30% {
-    width: 24px;
-    background-color: #fefdfb;
-    border-color: #fefdfb;
+    width: 18px;
+    background-color: #ffffff;
+    border-color: #ffffff;
   }
 
   40%,
-  86% {
-    width: 8px;
-    background-color: #433f3c;
-    border-color: #433f3c;
-  }
-
-  94%,
   100% {
-    width: 24px;
-    background-color: #fefdfb;
-    border-color: #fefdfb;
+    width: 6px;
+    background-color: transparent;
+    border-color: #737373;
   }
 }
 
 @keyframes kit-dot-b {
   0%,
   30% {
-    width: 8px;
-    background-color: #433f3c;
-    border-color: #433f3c;
+    width: 6px;
+    background-color: transparent;
+    border-color: #737373;
   }
 
   40%,
-  54% {
-    width: 24px;
-    background-color: #fefdfb;
-    border-color: #fefdfb;
+  58% {
+    width: 18px;
+    background-color: #ffffff;
+    border-color: #ffffff;
   }
 
-  64%,
+  68%,
   100% {
-    width: 8px;
-    background-color: #433f3c;
-    border-color: #433f3c;
+    width: 6px;
+    background-color: transparent;
+    border-color: #737373;
   }
 }
 
 @keyframes kit-dot-c {
   0%,
-  54% {
-    width: 8px;
-    background-color: #433f3c;
-    border-color: #433f3c;
+  58% {
+    width: 6px;
+    background-color: transparent;
+    border-color: #737373;
   }
 
-  64%,
-  80% {
-    width: 24px;
-    background-color: #fefdfb;
-    border-color: #fefdfb;
+  68%,
+  86% {
+    width: 18px;
+    background-color: #ffffff;
+    border-color: #ffffff;
   }
 
-  90%,
+  96%,
   100% {
-    width: 8px;
-    background-color: #433f3c;
-    border-color: #433f3c;
+    width: 6px;
+    background-color: transparent;
+    border-color: #737373;
+  }
+}
+
+@keyframes kit-star {
+  0%,
+  22% {
+    fill: transparent;
+  }
+
+  38%,
+  72% {
+    fill: #ffffff;
+  }
+
+  88%,
+  100% {
+    fill: transparent;
   }
 }
 
@@ -1874,9 +2064,13 @@ html:has(body.essay-page) {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .loop__block--c,
+  .loop__block--e,
+  .loop__slot,
   .kit__track,
   .kit__thumb,
   .kit__pill,
+  .kit__star,
   .kit__selector > span:nth-child(2),
   .kit__selector > span:nth-child(3),
   .kit__selector > span:nth-child(4),
@@ -1896,13 +2090,23 @@ html:has(body.essay-page) {
     animation: none;
   }
 
+  .loop__block--e {
+    opacity: 1;
+    transform: none;
+  }
+
+  .loop__slot {
+    opacity: 1;
+  }
+
   .kit__thumb {
     transform: translateX(20px);
+    background-color: #000000;
   }
 
   .kit__track {
-    background-color: #f2eeec;
-    border-color: #f2eeec;
+    background-color: #ffffff;
+    border-color: #ffffff;
   }
 
   .kit__pill {
@@ -1911,12 +2115,12 @@ html:has(body.essay-page) {
 
   .kit__selector > span:nth-child(2),
   .kit__selector > span:nth-child(4) {
-    color: #ada7a2;
+    color: #a3a3a3;
     font-weight: 400;
   }
 
   .kit__selector > span:nth-child(3) {
-    color: #fefdfb;
+    color: #000000;
     font-weight: 500;
   }
 
@@ -1924,10 +2128,14 @@ html:has(body.essay-page) {
     opacity: 1;
   }
 
+  .kit__star {
+    fill: #ffffff;
+  }
+
   .kit__pages i:nth-child(2) {
-    width: 24px;
-    background-color: #fefdfb;
-    border-color: #fefdfb;
+    width: 18px;
+    background-color: #ffffff;
+    border-color: #ffffff;
   }
 
   .vis__rest,
