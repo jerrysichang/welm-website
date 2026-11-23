@@ -1012,6 +1012,7 @@ html:has(body.essay-page) {
   justify-content: center;
   gap: 36px;
   width: 100%;
+  transform: scale(0.9);
 }
 @property --x {
   syntax: "<number>";
@@ -1201,7 +1202,7 @@ html:has(body.essay-page) {
     width: 672px;
     height: 440px;
     gap: 36px;
-    transform: translate(-50%, -50%) scale(calc((100cqw - 28px) / 672px));
+    transform: translate(-50%, -50%) scale(calc((100cqw - 28px) / 672px * 0.9));
   }
 
   .essay-figure--bleed .loop {
@@ -1243,6 +1244,26 @@ html:has(body.essay-page) {
     position: static;
     margin-top: 0;
   }
+}
+
+/* Phone rail is parked. Delete this block to bring the second column back. */
+.essay-layout {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "header"
+    "body";
+}
+
+.essay-layout .essay__body {
+  width: auto;
+}
+
+.essay-layout .essay-figure:not(.essay-figure--bleed) .essay-figure__box {
+  width: 100%;
+}
+
+.essay-rail {
+  display: none;
 }
 
 @media (max-width: 600px) {
