@@ -3,35 +3,34 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welm.app</title>
+    <title>Welmströmung | Welm.app</title>
     <meta
       name="description"
-      content="Welm is a to-do app for people who actually want to finish things. No tagging, no integrations, no algorithm—just your list, your choices, and simple rules that build willpower."
+      content="Welmströmung (n.) A steady current of deliberate action. The method behind Welm, from its premises to the daily practice."
     >
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#121212">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     >
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body class="home-page">
+  <body class="essay-page">
     <header class="site-header">
       <div class="site-header__inner">
-        <a class="brand" href="/">
+        <a class="brand" href="/" aria-label="Welm.app">
           <span class="brand__mark" aria-hidden="true"></span>
-          <span class="brand__wordmark">Welm.app</span>
         </a>
         <nav aria-label="Site links">
-          <button class="header-download" type="button" data-download-open>Download</button>
-          <a class="mobile-download" href="https://apps.apple.com/us/app/welm/id6752449247">Download</a>
+          <button class="header-download" type="button" data-download-open>Download Welm</button>
+          <a class="mobile-download" href="https://apps.apple.com/us/app/welm/id6752449247">Download Welm</a>
         </nav>
       </div>
     </header>
@@ -78,52 +77,330 @@
     </dialog>
 
     <main class="site-main">
-      <div class="container home-copy">
-        <h1 class="intro-heading">
-          Welm is to-do list system made for your dreams, habits, and attention span.
-        </h1>
+      <article class="essay-layout">
+        <header class="essay__header">
+          <h1>Welmströmung</h1>
+          <p class="essay-entry">
+            (<i>n.</i>) /ˈvɛlmˌʃtrøːmʊŋ/ A steady current of deliberate action.
+          </p>
+        </header>
 
-        <p>
-          Add tasks. Get them done. Unlock more tasks.
-        </p>
+        <div class="essay__body" id="method">
+          <section>
+            <h2><span class="essay-num">1. </span>Premises in productivity</h2>
+            <p>
+              Welmströmung is based on several findings about how people typically judge effort, choose between actions and direct attention. None of these findings are new; Welmströmung lies in how they are combined and applied.
+            </p>
+            <h3><span class="essay-num">1.1 </span>Judgments are relative.</h3>
+            <p>
+              People judge magnitude against reference points, not in isolation. Introducing anchors above or below a series of stimuli shifts how every item in the series is rated <a class="essay-cite" href="#ref-1">[1]</a>. Subjective effort appears to work similarly. One account proposes that the felt cost of a task reflects its value compared with the next-best use of the same mental resources <a class="essay-cite" href="#ref-2">[2]</a>. Welm assumes the same holds within a list: how hard a task looks depends partly on what is shown next to it.
+            </p>
+            <h3><span class="essay-num">1.2 </span>People avoid demand, and small frictions matter.</h3>
+            <p>
+              Given a choice between lines of action, people consistently prefer the less demanding one, often without being aware of it <a class="essay-cite" href="#ref-3">[3]</a>. Small amounts of procedural friction also have large effects. In a field experiment, helping families complete a complex aid application substantially increased submission rates, while giving information alone had no significant effect <a class="essay-cite" href="#ref-4">[4]</a>. Friction can work in either direction: removing it makes an action more likely, and adding it makes an action less likely.
+            </p>
+            <h3><span class="essay-num">1.3 </span>Salient items capture attention.</h3>
+            <p>
+              Attention is drawn to whatever stands out most, even when it is irrelevant. In visual search, an item with a unique colour pulls attention away from a known target, and this persists with practice <a class="essay-cite" href="#ref-5">[5]</a>. In an interface, the most visually distinct element is the one most likely to be acted on.
+            </p>
+          </section>
 
-        <p>
-          No tagging. No integrations. No algorithm deciding what matters. Just a prioritized list and some simple rules to build willpower and momentum.
-        </p>
+          <section>
+            <h2><span class="essay-num">2. </span>The to-do list problem</h2>
+            <p>
+              People spend little effort creating tasks for to-do lists, and many of those tasks are never completed <a class="essay-cite" href="#ref-6">[6]</a>. The same research found that people are not poor at prioritising. Rather, the difficulty lies in the effort needed to keep a task list working <a class="essay-cite" href="#ref-6">[6]</a>.
+            </p>
+            <p>
+              Tasks accumulate because adding them is fast and cheap, while completing them is slow and costly.
+            </p>
+            <p>
+              As a list grows, older items sink out of view, and it becomes a record of obligations rather than a plan of action. The resulting cognitive cost is significant: unfulfilled goals stay active in the mind and interfere with unrelated tasks <a class="essay-cite" href="#ref-7">[7]</a>.
+            </p>
+            <p>
+              A to-do list works when every item in focus was deliberately chosen. It fails when it becomes a place where items accumulate by default.
+            </p>
+            <figure class="essay-figure">
+              <div class="essay-figure__box" role="img" aria-label="Circles appear one by one in a hex grid, faster than other circles disappear. When the grid is full, the whole field fades and starts again.">
+                <div class="hex" aria-hidden="true"></div>
+              </div>
+            </figure>
+          </section>
 
-        <p>
-          The only downside &ndash;<br><br>
-          It's sole purpose is to keep you focused, so it looks incredibly boring:
-        </p>
+          <section>
+            <h2><span class="essay-num">3. </span>Welm mechanisms</h2>
+            <p>
+              Welmströmung turns the three premises in productivity (see Section 1) into three mechanisms, each encapsulated by the process rather than offered as additional steps or actions to take.
+            </p>
+            <h3><span class="essay-num">3.1 </span>Completion earns the capacity of addition.</h3>
+            <p>
+              The focus set must have a fixed capacity. A new task can only be promoted into focus once an existing one has been completed or removed. Promoting becomes a decision rather than a reflex, addressing the growth problem in Section 2 and keeping the number of open goals low <a class="essay-cite" href="#ref-7">[7]</a>. It also changes where pressure falls. In an unbounded list, the backlog's weight is spread evenly. In Welmströmung, the remaining items press on the task in focus, because finishing it is what makes room for other priorities. The demand-avoidance tendency in 1.2 is directed toward completion instead of away from it.
+            </p>
+            <h3><span class="essay-num">3.2 </span>Choice within a set.</h3>
+            <p>
+              Tasks are presented in small sets rather than as one continuous list, and the user must be able to choose freely from them. Decision time increases with the number of alternatives <a class="essay-cite" href="#ref-8">[8]</a>. Choice overload, where large option sets lead to deferral and dissatisfaction, is contested as a general effect. A meta-analysis found it depends on specific conditions, including task difficulty, preference uncertainty and a goal of minimising effort <a class="essay-cite" href="#ref-9">[9]</a>. Choosing what to do next often meets those conditions. Small sets reduce the cost of each choice, and comparison within a set (1.1) usually makes at least one task look manageable.
+            </p>
+            <h3><span class="essay-num">3.3 </span>Reduced distraction.</h3>
+            <p>
+              Focus tasks are visually separated from the rest of the list and always appear first. Everything else is subdued. This uses attentional capture (1.3) deliberately: the most salient element on screen is always the one the user has chosen to work on <a class="essay-cite" href="#ref-5">[5]</a>.
+            </p>
+          </section>
 
-        <figure class="showcase">
-          <div class="showcase-stack">
-            <img
-              class="showcase-glow"
-              src="assets/welm-showcase-glow.png"
-              width="1024"
-              height="911"
-              alt=""
-              aria-hidden="true"
-            >
-            <img
-              class="showcase-phone"
-              src="assets/welm-phone.png"
-              width="454"
-              height="1024"
-              alt="Welm app showing Focus, Next, and Later task lists"
-            >
+          <section>
+            <h2><span class="essay-num">4. </span>The practice</h2>
+            <p>
+              Welmströmung is a practice comprising a simple loop with specific priorities.
+            </p>
+            <p>
+              <strong>Focus tasks.</strong> When engaging the system, the most salient information should first be the current set of focus tasks. This should be limited to 2-3 tasks. All sessions of Welmströmung begin with this reminder.
+            </p>
+            <p>
+              <strong>Adding.</strong> Capturing tasks should be fast and streamlined, so the user can move on to their next goals. Curating, editing and setting up should not happen at the capture stage.
+            </p>
+            <p>
+              <strong>Prioritising.</strong> Promoting tasks into empty slots is the prioritisation process. Since promoting is the mechanism for deciding what to do, it should be fluid and easy to grasp spatially.
+            </p>
+            <p>
+              In a study of real-world habit formation, behaviours repeated daily in a consistent context became more automatic along an asymptotic curve. The time to reach a plateau varied widely between people <a class="essay-cite" href="#ref-10">[10]</a>. The key insight for this loop is to make it repetitive and simple: a consistent cue, a short routine and a visible result.
+            </p>
+            <figure class="essay-figure essay-figure--bleed">
+              <div class="essay-figure__box" role="img" aria-label="Three lists side by side. In each, the top cards are white and glow. The two sections below are the same length. A card from anywhere in a section can rise. When a focus card is completed, it fades upward and a new card fades in at the bottom.">
+                <div class="loop-row">
+                  <div class="loop" aria-hidden="true">
+                    <span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span>
+                  </div>
+                  <div class="loop" aria-hidden="true">
+                    <span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span>
+                  </div>
+                  <div class="loop" aria-hidden="true">
+                    <span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span><span class="loop__block"></span>
+                  </div>
+                </div>
+              </div>
+            </figure>
+          </section>
+
+          <section>
+            <h2><span class="essay-num">5. </span>Design notes</h2>
+            <h3><span class="essay-num">5.1 </span>A lean visual system for minimal stimulation.</h3>
+            <p>
+              Every visual element competes for attention with task completion, so the system's default is to embody a restrained palette, a simple type scale, and fewer variables (contrast and, to some extent, scale) to eliminate competing modes of focus.
+            </p>
+            <div class="note-anim" aria-hidden="true">
+              <div class="kit">
+                <div class="kit__toggle">
+                  <span class="kit__track"></span>
+                  <span class="kit__thumb"></span>
+                </div>
+                <span class="kit__badge">Due</span>
+                <span class="kit__date">Tomorrow<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M11.4 2.2 13.8 4.6 5.5 12.9 2.6 13.4 3.1 10.5 11.4 2.2Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span>
+                <span class="kit__break"></span>
+                <span class="kit__close"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.4 4.4 11.6 11.6M11.6 4.4 4.4 11.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                <div class="kit__toggle kit__toggle--off">
+                  <span class="kit__track"></span>
+                  <span class="kit__thumb"></span>
+                </div>
+                <div class="kit__selector">
+                  <span class="kit__pill"></span>
+                  <span>Now</span>
+                  <span>Next</span>
+                  <span>Later</span>
+                </div>
+                <span class="kit__button">Add</span>
+                <span class="kit__pages"><i></i><i></i><i></i></span>
+              </div>
+            </div>
+            <h3><span class="essay-num">5.2 </span>Highlighting and visibility of focus tasks.</h3>
+            <p>
+              High visibility is reserved for giving focus tasks maximum contrast. Not even primary CTAs compete here. To ensure harmony with sticky elements, cubic-bezier gradient overlays are combined with custom opacity tuning.
+            </p>
+            <div class="note-anim" aria-hidden="true">
+              <div class="specimen">
+                <div class="specimen__fade"></div>
+                <div class="specimen__track">
+                <div class="ds-card ds-card--focus">
+                  <div class="ds-card__top">
+                    <span class="ds-card__name">Investigate anomaly</span>
+                    <svg class="ds-stars" viewBox="572.7 237 47.7 27.4" aria-hidden="true"><path d="M586.941 237.096C587.371 237.096 587.792 237.222 588.15 237.461C588.508 237.699 588.788 238.038 588.954 238.435L591.799 245.201L599.056 245.826L599.372 245.878C599.683 245.952 599.975 246.093 600.226 246.294C600.561 246.56 600.81 246.921 600.943 247.328C601.077 247.737 601.088 248.178 600.974 248.594C600.859 249.008 600.623 249.381 600.298 249.663L594.784 254.473L596.436 261.636C596.534 262.055 596.506 262.493 596.356 262.896C596.206 263.299 595.941 263.649 595.594 263.901C595.246 264.154 594.831 264.3 594.402 264.319C594.08 264.333 593.759 264.275 593.464 264.152L593.179 264.006L586.933 260.218L580.701 264.006C580.333 264.228 579.906 264.337 579.476 264.319C579.048 264.3 578.634 264.154 578.287 263.901C577.939 263.649 577.674 263.299 577.524 262.896C577.374 262.493 577.345 262.055 577.442 261.636L579.094 254.48L573.582 249.663C573.257 249.382 573.02 249.011 572.904 248.597C572.789 248.183 572.799 247.743 572.932 247.334C573.064 246.925 573.315 246.563 573.652 246.296C573.989 246.028 574.398 245.866 574.826 245.83L582.091 245.201L584.93 238.435C585.096 238.039 585.374 237.699 585.732 237.461C586.09 237.222 586.511 237.096 586.941 237.096Z"/><path d="M606.119 237.094C606.549 237.094 606.97 237.222 607.328 237.461C607.686 237.699 607.966 238.038 608.132 238.435L610.977 245.201L618.234 245.826L618.55 245.878C618.861 245.952 619.153 246.094 619.404 246.294C619.739 246.56 619.988 246.921 620.121 247.328C620.255 247.737 620.266 248.179 620.152 248.594C620.037 249.008 619.801 249.381 619.476 249.663L613.962 254.473L615.614 261.636C615.711 262.055 615.684 262.494 615.534 262.896C615.384 263.298 615.119 263.649 614.772 263.901C614.424 264.154 614.009 264.3 613.58 264.319C613.258 264.332 612.937 264.275 612.642 264.152L612.357 264.006L606.111 260.218L599.879 264.006C599.609 264.169 599.305 264.268 598.994 264.303C599.05 264.182 599.105 264.06 599.151 263.934C599.461 263.101 599.55 262.204 599.413 261.332L599.339 260.959L598.09 255.544L602.253 251.916C603.021 251.25 603.577 250.368 603.848 249.387C604.086 248.526 604.095 247.621 603.881 246.763L603.776 246.398C603.464 245.444 602.878 244.593 602.084 243.961C602.011 243.902 601.935 243.846 601.859 243.792L604.108 238.435C604.274 238.039 604.553 237.699 604.91 237.461C605.267 237.222 605.69 237.094 606.119 237.094Z"/></svg>
+                  </div>
+                  <div class="ds-card__bot">
+                    <span class="ds-badge">Overdue</span>
+                  </div>
+                </div>
+                <div class="ds-card ds-card--focus">
+                  <div class="ds-card__top">
+                    <span class="ds-card__name">Find Yves</span>
+                    <svg class="ds-star" viewBox="590.4 719.8 28.4 27.4" aria-hidden="true"><path d="M604.621 719.865C605.051 719.865 605.472 719.992 605.83 720.23C606.188 720.469 606.468 720.808 606.633 721.204L609.479 727.97L616.736 728.595L617.052 728.648C617.362 728.722 617.655 728.863 617.906 729.063C618.241 729.33 618.49 729.69 618.622 730.098C618.757 730.507 618.768 730.948 618.653 731.363C618.539 731.778 618.303 732.151 617.978 732.433L612.464 737.242L614.116 744.406C614.213 744.824 614.186 745.263 614.036 745.666C613.886 746.068 613.621 746.418 613.273 746.671C612.926 746.924 612.511 747.07 612.082 747.088C611.759 747.102 611.439 747.045 611.144 746.921L610.859 746.776L604.613 742.987L598.381 746.776C598.013 746.998 597.585 747.107 597.156 747.088C596.727 747.069 596.313 746.923 595.966 746.671C595.619 746.418 595.353 746.068 595.203 745.666C595.054 745.263 595.024 744.824 595.122 744.406L596.774 737.25L591.261 732.433C590.936 732.152 590.7 731.781 590.584 731.367C590.468 730.952 590.478 730.513 590.611 730.103C590.744 729.694 590.994 729.333 591.331 729.065C591.668 728.798 592.077 728.636 592.506 728.599L599.77 727.97L602.61 721.204C602.776 720.808 603.054 720.468 603.412 720.23C603.769 719.992 604.191 719.865 604.621 719.865Z"/></svg>
+                  </div>
+                  <div class="ds-card__bot">
+                    <span class="ds-chip">Thu</span>
+                  </div>
+                </div>
+                <div class="ds-card">
+                  <div class="ds-card__top">
+                    <span class="ds-card__name">Take vits</span>
+                  </div>
+                  <div class="ds-card__bot">
+                    <span class="ds-chip">Today</span>
+                  </div>
+                </div>
+                <div class="ds-card">
+                  <div class="ds-card__top">
+                    <span class="ds-card__name">Send Janet logs</span>
+                    <svg class="ds-star" viewBox="590.4 719.8 28.4 27.4" aria-hidden="true"><path d="M604.621 719.865C605.051 719.865 605.472 719.992 605.83 720.23C606.188 720.469 606.468 720.808 606.633 721.204L609.479 727.97L616.736 728.595L617.052 728.648C617.362 728.722 617.655 728.863 617.906 729.063C618.241 729.33 618.49 729.69 618.622 730.098C618.757 730.507 618.768 730.948 618.653 731.363C618.539 731.778 618.303 732.151 617.978 732.433L612.464 737.242L614.116 744.406C614.213 744.824 614.186 745.263 614.036 745.666C613.886 746.068 613.621 746.418 613.273 746.671C612.926 746.924 612.511 747.07 612.082 747.088C611.759 747.102 611.439 747.045 611.144 746.921L610.859 746.776L604.613 742.987L598.381 746.776C598.013 746.998 597.585 747.107 597.156 747.088C596.727 747.069 596.313 746.923 595.966 746.671C595.619 746.418 595.353 746.068 595.203 745.666C595.054 745.263 595.024 744.824 595.122 744.406L596.774 737.25L591.261 732.433C590.936 732.152 590.7 731.781 590.584 731.367C590.468 730.952 590.478 730.513 590.611 730.103C590.744 729.694 590.994 729.333 591.331 729.065C591.668 728.798 592.077 728.636 592.506 728.599L599.77 727.97L602.61 721.204C602.776 720.808 603.054 720.468 603.412 720.23C603.769 719.992 604.191 719.865 604.621 719.865Z"/></svg>
+                  </div>
+                  <div class="ds-card__bot">
+                    <span class="ds-chip">Thu</span>
+                  </div>
+                </div>
+                <div class="ds-card">
+                  <div class="ds-card__top">
+                    <span class="ds-card__name">Clean boots</span>
+                  </div>
+                  <div class="ds-card__bot">
+                    <span class="ds-chip">Mon</span>
+                  </div>
+                </div>
+                <div class="ds-card">
+                  <div class="ds-card__top">
+                    <span class="ds-card__name">File the report</span>
+                  </div>
+                  <div class="ds-card__bot">
+                    <span class="ds-chip">Fri</span>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+            <h3><span class="essay-num">5.3 </span>Friction.</h3>
+            <p>
+              Friction is removed from the aspects of Welmströmung that promote task completion: completing tasks and promoting tasks into empty slots. Friction is added to the aspects that break its principles: de-prioritising tasks, attempting to skip tasks, or attempting to complete tasks that have not been prioritised. Small procedural costs measurably change behaviour <a class="essay-cite" href="#ref-4">[4]</a>. Here, that effect is used to steer people towards effective behaviour.
+            </p>
+            <h3><span class="essay-num">5.4 </span>Progressive functionality.</h3>
+            <p>
+              Welm starts with the minimum needed to run the loop, and further functionality becomes available over time. This follows the "training wheels" approach to interface design. New users of a word processor whose advanced functions were blocked learned faster and performed better than users of the full system, who spent almost a quarter of their time recovering from errors <a class="essay-cite" href="#ref-12">[12]</a>.
+            </p>
+            <h3><span class="essay-num">5.5 </span>Unlocks and feedback.</h3>
+            <p>
+              Rewards that depend on completing a task can undermine intrinsic motivation, while positive feedback tends to increase it <a class="essay-cite" href="#ref-11">[11]</a>. Welm's unlocks are therefore designed as acknowledgement, not prizes. They show that the practice is being kept up. Functionality is staged to keep the start simple (5.4), but nothing is withheld as a reward.
+            </p>
+            <div class="note-anim" aria-hidden="true">
+              <div class="marks">
+                <svg class="marks__icon" viewBox="0 0 150 150" aria-hidden="true">
+                  <path d="M78.7 149.3C77.5 148.1 77.9 131.5 79.2 130.2C80.1 129.3 86.8 129 103.2 129L126 129L134.1 133C145.7 138.9 145.7 140.6 133.8 146.6L127 150L103.2 150C90.1 150 79 149.7 78.7 149.3Z"/>
+                  <path d="M0.7 130.3C0.3 130 -0 119 -0 105.9L-0 82L2.5 81.4C4.4 80.9 6.6 82 12.7 86.2L20.5 91.5L20.7 106.5C20.9 114.8 20.7 122 20.2 122.6C19.2 124.2 5.4 131 3.2 131C2.2 131 1 130.7 0.7 130.3Z"/>
+                  <path d="M27.7 122.3C26.8 121.4 26.8 111.8 27.8 110.4C28.2 109.8 34.2 105.5 41.2 100.7C52.9 92.6 54.2 92 58.8 92C66.3 92 66.6 94.3 60.1 102.8C55.4 108.9 55 109.8 55 115C55 118.1 54.5 121.1 53.8 121.8C52.5 123.1 28.9 123.6 27.7 122.3Z"/>
+                  <path d="M96.2 121.8C95.5 121.1 95 118.1 95 115C95 109.9 94.6 109 90 103.1C83.2 94.5 83.6 92 91.8 92C95.6 92 97.7 93.1 109.6 101.2L123 110.4L123 115.5C123 118.3 122.5 121.1 121.8 121.8C120.1 123.5 97.9 123.5 96.2 121.8Z"/>
+                  <path d="M137.2 63.5L129 58L129 43.1C129 26.2 128.5 27.2 138.8 22.1C149.9 16.5 149.5 15.6 149.8 43.4C150.1 73.1 150.5 72.4 137.2 63.5Z"/>
+                  <path d="M40.5 50.7L27.5 43.4L27.2 36.6C27 32.5 27.4 29.3 28.1 28.4C29.6 26.6 52 26.4 53.8 28.2C54.5 28.9 55 32 55 35.1C55 40.4 55.3 41.1 60 47C66.8 55.6 66.4 58 58.1 58C54.3 58 51.3 56.8 40.5 50.7Z"/>
+                  <path d="M85.7 57.3C84.2 55.8 85.3 53.2 90 47.1C94.6 41.1 95 40.2 95 35C95 31.9 95.5 28.9 96.2 28.2C97.9 26.5 120.1 26.5 121.8 28.2C122.5 28.9 123 32.2 123 36.1L123 42.9L109.6 50.4C97.9 57 95.5 58 91.3 58C88.5 58 86 57.7 85.7 57.3Z"/>
+                  <path d="M15.8 17C11.6 14.8 7.9 12.6 7.5 12C6 9.6 8.5 7.2 15.8 3.7L23.5 -0.1L47.5 0.2L71.5 0.5L71.8 9.3C72 15 71.7 18.7 70.9 19.6C70 20.7 65.3 21 46.6 21L23.5 20.9L15.8 17Z"/>
+                </svg>
+                <svg class="marks__icon" viewBox="0 0 150 150" aria-hidden="true">
+                  <path d="M15.3 146.2C4.4 140.7 4.5 138.8 16.1 132.9L24 129L46.8 129C63.2 129 69.9 129.3 70.8 130.2C72.4 131.8 72.4 147.2 70.8 148.8C69.9 149.7 63.1 150 46.1 149.9L22.5 149.9L15.3 146.2Z"/>
+                  <path d="M78.7 149.3C77.5 148.1 77.9 131.5 79.2 130.2C80.1 129.3 86.8 129 103.2 129L126 129L134.1 133C145.7 138.9 145.7 140.6 133.8 146.6L127 150L103.2 150C90.1 150 79 149.7 78.7 149.3Z"/>
+                  <path d="M0.7 130.3C0.3 130 -0 119 -0 105.9L-0 82L2.5 81.4C4.4 80.9 6.6 82 12.7 86.2L20.5 91.5L20.7 106.5C20.9 114.8 20.7 122 20.2 122.6C19.2 124.2 5.4 131 3.2 131C2.2 131 1 130.7 0.7 130.3Z"/>
+                  <path d="M137.5 127.3C133.7 125.4 130.2 123.2 129.8 122.6C129.4 122 129 114.9 129 106.8L129 92L137.4 86.4C150.1 78 149.5 77 149.5 106L149.5 130.5L147 130.7C145.6 130.8 141.3 129.3 137.5 127.3Z"/>
+                  <path d="M27.7 122.3C26.8 121.4 26.8 111.8 27.8 110.4C28.2 109.8 34.2 105.5 41.2 100.7C52.9 92.6 54.2 92 58.8 92C66.3 92 66.6 94.3 60.1 102.8C55.4 108.9 55 109.8 55 115C55 118.1 54.5 121.1 53.8 121.8C52.5 123.1 28.9 123.6 27.7 122.3Z"/>
+                  <path d="M62.2 121.8C59.3 118.9 60.8 112.9 66.8 103.8C74.9 91.3 75.2 91.3 83.3 103.6C89.2 112.5 90.8 118.8 87.8 121.8C86.1 123.5 63.9 123.5 62.2 121.8Z"/>
+                  <path d="M96.2 121.8C95.5 121.1 95 118.1 95 115C95 109.9 94.6 109 90 103.1C83.2 94.5 83.6 92 91.8 92C95.6 92 97.7 93.1 109.6 101.2L123 110.4L123 115.5C123 118.3 122.5 121.1 121.8 121.8C120.1 123.5 97.9 123.5 96.2 121.8Z"/>
+                  <path d="M0.4 67.7C0.2 67 0.1 55.9 0.2 43C0.5 15.3 -0.1 16.4 12.9 23L21 27L21 42.5L21 58L12.8 63.5C4.5 69 1.4 70.1 0.4 67.7Z"/>
+                  <path d="M137.2 63.5L129 58L129 43.1C129 26.2 128.5 27.2 138.8 22.1C149.9 16.5 149.5 15.6 149.8 43.4C150.1 73.1 150.5 72.4 137.2 63.5Z"/>
+                  <path d="M40.5 50.7L27.5 43.4L27.2 36.6C27 32.5 27.4 29.3 28.1 28.4C29.6 26.6 52 26.4 53.8 28.2C54.5 28.9 55 32 55 35.1C55 40.4 55.3 41.1 60 47C66.8 55.6 66.4 58 58.1 58C54.3 58 51.3 56.8 40.5 50.7Z"/>
+                  <path d="M85.7 57.3C84.2 55.8 85.3 53.2 90 47.1C94.6 41.1 95 40.2 95 35C95 31.9 95.5 28.9 96.2 28.2C97.9 26.5 120.1 26.5 121.8 28.2C122.5 28.9 123 32.2 123 36.1L123 42.9L109.6 50.4C97.9 57 95.5 58 91.3 58C88.5 58 86 57.7 85.7 57.3Z"/>
+                  <path d="M67.1 45.4C61.8 38.7 61 37.2 61 33.5C61 27.3 62 26.9 76.1 27.2L88.5 27.5L88.8 32.6C89.1 37.4 88.9 37.9 83 45.3C79.3 49.8 76.1 53 75 53C73.9 53 70.7 49.9 67.1 45.4Z"/>
+                  <path d="M15.8 17C11.6 14.8 7.9 12.6 7.5 12C6 9.6 8.5 7.2 15.8 3.7L23.5 -0.1L47.5 0.2L71.5 0.5L71.8 9.3C72 15 71.7 18.7 70.9 19.6C70 20.7 65.3 21 46.6 21L23.5 20.9L15.8 17Z"/>
+                  <path d="M79.2 19.8C77.6 18.2 77.6 2.8 79.2 1.2C80.1 0.3 86.9 0 103.7 0L127 0L134.5 3.7C141.6 7.2 143.9 9.7 142.5 12C142.1 12.6 138.3 14.8 133.9 17L126 21L103.2 21C86.8 21 80.1 20.7 79.2 19.8Z"/>
+                </svg>
+                <svg class="marks__icon" viewBox="0 0 150 150" aria-hidden="true">
+                  <path d="M15.3 146.2C4.4 140.7 4.5 138.8 16.1 132.9L24 129L46.8 129C63.2 129 69.9 129.3 70.8 130.2C72.4 131.8 72.4 147.2 70.8 148.8C69.9 149.7 63.1 150 46.1 149.9L22.5 149.9L15.3 146.2Z"/>
+                  <path d="M0.7 130.3C0.3 130 -0 119 -0 105.9L-0 82L2.5 81.4C4.4 80.9 6.6 82 12.7 86.2L20.5 91.5L20.7 106.5C20.9 114.8 20.7 122 20.2 122.6C19.2 124.2 5.4 131 3.2 131C2.2 131 1 130.7 0.7 130.3Z"/>
+                  <path d="M62.2 121.8C59.3 118.9 60.8 112.9 66.8 103.8C74.9 91.3 75.2 91.3 83.3 103.6C89.2 112.5 90.8 118.8 87.8 121.8C86.1 123.5 63.9 123.5 62.2 121.8Z"/>
+                  <path d="M16.8 81.7C7.1 75.7 7.5 73.6 19.1 67.1L24.7 64L46.4 64C59.5 64 68.9 64.4 70.1 65C71.8 65.9 72 67.2 72 75.1C72 83.8 71.9 84.1 69.4 85C68 85.6 57.1 86 45.2 85.9L23.5 85.8L16.8 81.7Z"/>
+                  <path d="M79.8 84.9C78.3 84.1 78 82.4 78 75.5C78 63.4 76.7 64 103.2 64L125.3 64L131.5 67.5C142.4 73.6 142.5 75.6 132.5 81.7L125.6 86L103.5 86C90.4 86 80.8 85.5 79.8 84.9Z"/>
+                  <path d="M137.2 63.5L129 58L129 43.1C129 26.2 128.5 27.2 138.8 22.1C149.9 16.5 149.5 15.6 149.8 43.4C150.1 73.1 150.5 72.4 137.2 63.5Z"/>
+                  <path d="M67.1 45.4C61.8 38.7 61 37.2 61 33.5C61 27.3 62 26.9 76.1 27.2L88.5 27.5L88.8 32.6C89.1 37.4 88.9 37.9 83 45.3C79.3 49.8 76.1 53 75 53C73.9 53 70.7 49.9 67.1 45.4Z"/>
+                  <path d="M79.2 19.8C77.6 18.2 77.6 2.8 79.2 1.2C80.1 0.3 86.9 0 103.7 0L127 0L134.5 3.7C141.6 7.2 143.9 9.7 142.5 12C142.1 12.6 138.3 14.8 133.9 17L126 21L103.2 21C86.8 21 80.1 20.7 79.2 19.8Z"/>
+                </svg>
+                <svg class="marks__icon" viewBox="0 0 150 150" aria-hidden="true">
+                  <path d="M26.4 123.5C25.2 122.3 24.8 120.4 25 117L25.3 112.2L39.4 102.5C51.7 94 54.1 92.8 58 92.8C65.3 92.8 65.6 95.4 59.3 103.7C54.6 109.8 54.1 111 54.1 115.8C54.1 125 53.7 125.2 40 125.2C30.4 125.2 27.7 124.9 26.4 123.5Z"/>
+                  <path d="M62 123.6C58.8 120.3 60 115.5 66.6 105.5C71 98.7 73.5 95.9 75 95.9C77.9 95.9 89.6 113.5 89.6 117.9C89.6 124.8 88.8 125.2 75.6 125.2C66.1 125.2 63.3 124.9 62 123.6Z"/>
+                  <path d="M97.6 123.6C96.5 122.5 95.9 120 95.9 116.1C95.9 110.7 95.5 109.7 91.1 104.1C84.9 96.2 85.1 93.4 91.8 93C96.3 92.7 97.3 93.2 110.6 102.4C124.6 112.1 124.7 112.2 125 116.5C125.6 124.7 124.7 125.2 111.1 125.2C101.7 125.2 98.9 124.9 97.6 123.6Z"/>
+                  <path d="M14.3 81.6C4.9 75.4 4.8 74.5 13.8 68.8L20.5 64.5L44.9 64.5C62.5 64.5 69.7 64.9 70.6 65.8C72.2 67.3 72.3 80.6 70.8 83.4C69.8 85.4 68.4 85.5 44.9 85.4L20.1 85.4L14.3 81.6Z"/>
+                  <path d="M79.2 83.4C78.6 82.3 78.1 78.5 78.1 75C78.1 63.9 76.5 64.5 105.1 64.6L129.9 64.7L136.2 68.6C141 71.6 142.5 73.2 142.5 75C142.5 76.8 141 78.4 136.2 81.4L129.9 85.3L105.1 85.4C81.6 85.5 80.2 85.4 79.2 83.4Z"/>
+                  <path d="M40.9 50.1C24.3 40.9 24.8 41.4 24.8 34.5C24.8 25 25.1 24.8 38.9 24.8C53.2 24.8 54.1 25.3 54.1 33.8C54.1 39 54.5 40.1 59.3 46.3C63.7 52 64.4 53.5 63.5 55.2C61.2 59.3 54.8 57.9 40.9 50.1Z"/>
+                  <path d="M87.2 56.5C85.5 54.8 86.8 51.4 91.2 45.8C95.3 40.7 95.9 39.1 95.9 35C95.9 25.1 96.3 24.8 109.6 24.8C124.6 24.8 125.2 25.1 125.2 33.6C125.2 41.5 125.7 41 109.1 50.3C99.3 55.8 95.8 57.2 92.3 57.2C89.9 57.2 87.6 56.9 87.2 56.5Z"/>
+                  <path d="M70.6 48.1C61 37.8 58.1 30.4 62 26.4C64.4 24 85.6 24 88 26.4C91.5 30 90.1 35.2 83.3 43.4C76.4 51.7 74.6 52.4 70.6 48.1Z"/>
+                </svg>
+              </div>
+            </div>
+          </section>
+
+          <section aria-labelledby="references-heading">
+            <h2 id="references-heading">References</h2>
+            <ol class="essay-refs">
+              <li id="ref-1"><span class="essay-ref__n">[1]</span><span>Sherif, M., Taub, D., &amp; Hovland, C. I. (1958). Assimilation and contrast effects of anchoring stimuli on judgments. <i>Journal of Experimental Psychology</i>, 55(2), 150–155.</span></li>
+              <li id="ref-2"><span class="essay-ref__n">[2]</span><span>Kurzban, R., Duckworth, A., Kable, J. W., &amp; Myers, J. (2013). An opportunity cost model of subjective effort and task performance. <i>Behavioral and Brain Sciences</i>, 36(6), 661–679.</span></li>
+              <li id="ref-3"><span class="essay-ref__n">[3]</span><span>Kool, W., McGuire, J. T., Rosen, Z. B., &amp; Botvinick, M. M. (2010). Decision making and the avoidance of cognitive demand. <i>Journal of Experimental Psychology: General</i>, 139(4), 665–682.</span></li>
+              <li id="ref-4"><span class="essay-ref__n">[4]</span><span>Bettinger, E. P., Long, B. T., Oreopoulos, P., &amp; Sanbonmatsu, L. (2012). The role of application assistance and information in college decisions: Results from the H&amp;R Block FAFSA experiment. <i>Quarterly Journal of Economics</i>, 127(3), 1205–1242.</span></li>
+              <li id="ref-5"><span class="essay-ref__n">[5]</span><span>Theeuwes, J. (1992). Perceptual selectivity for color and form. <i>Perception &amp; Psychophysics</i>, 51(6), 599–606.</span></li>
+              <li id="ref-6"><span class="essay-ref__n">[6]</span><span>Bellotti, V., Dalal, B., Good, N., Flynn, P., Bobrow, D. G., &amp; Ducheneaut, N. (2004). What a to-do: Studies of task management towards the design of a personal task list manager. <i>Proceedings of CHI 2004</i>, 735–742.</span></li>
+              <li id="ref-7"><span class="essay-ref__n">[7]</span><span>Masicampo, E. J., &amp; Baumeister, R. F. (2011). Consider it done! Plan making can eliminate the cognitive effects of unfulfilled goals. <i>Journal of Personality and Social Psychology</i>, 101(4), 667–683.</span></li>
+              <li id="ref-8"><span class="essay-ref__n">[8]</span><span>Hick, W. E. (1952). On the rate of gain of information. <i>Quarterly Journal of Experimental Psychology</i>, 4(1), 11–26.</span></li>
+              <li id="ref-9"><span class="essay-ref__n">[9]</span><span>Chernev, A., Böckenholt, U., &amp; Goodman, J. (2015). Choice overload: A conceptual review and meta-analysis. <i>Journal of Consumer Psychology</i>, 25(2), 333–358.</span></li>
+              <li id="ref-10"><span class="essay-ref__n">[10]</span><span>Lally, P., van Jaarsveld, C. H. M., Potts, H. W. W., &amp; Wardle, J. (2010). How are habits formed: Modelling habit formation in the real world. <i>European Journal of Social Psychology</i>, 40(6), 998–1009.</span></li>
+              <li id="ref-11"><span class="essay-ref__n">[11]</span><span>Deci, E. L., Koestner, R., &amp; Ryan, R. M. (1999). A meta-analytic review of experiments examining the effects of extrinsic rewards on intrinsic motivation. <i>Psychological Bulletin</i>, 125(6), 627–668.</span></li>
+              <li id="ref-12"><span class="essay-ref__n">[12]</span><span>Carroll, J. M., &amp; Carrithers, C. (1984). Training wheels in a user interface. <i>Communications of the ACM</i>, 27(8), 800–806.</span></li>
+            </ol>
+          </section>
+        </div>
+
+        <aside class="essay-rail" aria-label="Get the app">
+          <div class="essay-rail__above">
+            <div class="essay-rail__sticky">
+              <div class="essay-rail__shift">
+              <div class="essay-rail__scale">
+              <img
+                class="essay-rail__phone"
+                src="assets/welm-phone-screen.svg"
+                width="696"
+                height="1562"
+                alt="Welm on iPhone, showing Focus, Next, and Later."
+              >
+              <p class="essay-rail__cta">
+                <button type="button" class="cta-link" data-download-open>Welm iOS app</button>
+                <a
+                  class="cta-link-mobile"
+                  href="https://apps.apple.com/us/app/welm/id6752449247"
+                >Welm iOS app</a>
+              </p>
+              </div>
+              </div>
+            </div>
           </div>
-        </figure>
-
-        <p class="cta-try">
-          <button type="button" class="cta-link" data-download-open>See for yourself.</button>
-          <a
-            class="cta-link-mobile"
-            href="https://apps.apple.com/us/app/welm/id6752449247"
-          >See for yourself.</a>
-        </p>
-      </div>
+          <div class="essay-rail__below" aria-hidden="true" inert>
+            <div class="essay-rail__sticky">
+              <div class="essay-rail__shift">
+              <div class="essay-rail__scale">
+              <img
+                class="essay-rail__phone"
+                src="assets/welm-phone-screen.svg"
+                width="696"
+                height="1562"
+                alt=""
+              >
+              <p class="essay-rail__cta">
+                <button type="button" class="cta-link" data-download-open>Welm iOS app</button>
+                <a
+                  class="cta-link-mobile"
+                  href="https://apps.apple.com/us/app/welm/id6752449247"
+                >Welm iOS app</a>
+              </p>
+              </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </article>
     </main>
 
     <footer class="site-footer">
@@ -139,5 +416,689 @@
     </footer>
 
     <script src="modal.js"></script>
+    <script>
+      (function () {
+        var rail = document.querySelector(".essay-rail");
+        var above = rail && rail.querySelector(".essay-rail__above");
+        var below = rail && rail.querySelector(".essay-rail__below");
+        var phone = above && above.querySelector(".essay-rail__sticky");
+        var figure = document.querySelector(".essay-figure--bleed .essay-figure__box");
+        var block = figure && figure.closest(".essay-figure");
+        if (!rail || !above || !below || !phone || !figure || !block) return;
+
+        var desktop = window.matchMedia("(min-width: 961px)");
+        var pin = 0;
+        var lead = 0;
+        var fadeSpan = 1;
+        var phoneH = 0;
+        var padTop = 0;
+        var padBottom = 0;
+        var clearing = false;
+        var arrived = false;
+        var frame = 0;
+
+        function measureLen(name) {
+          var raw = getComputedStyle(document.body).getPropertyValue(name).trim() || "0px";
+          var probe = document.createElement("div");
+          probe.style.cssText = "position:absolute;visibility:hidden;height:" + raw;
+          document.body.appendChild(probe);
+          var value = probe.getBoundingClientRect().height;
+          probe.remove();
+          return value;
+        }
+
+        function setActive(el, active) {
+          if (active) {
+            el.removeAttribute("inert");
+            el.removeAttribute("aria-hidden");
+          } else {
+            el.setAttribute("inert", "");
+            el.setAttribute("aria-hidden", "true");
+          }
+        }
+
+        var heading = document.querySelector(".essay__header h1");
+        var stickies = rail.querySelectorAll(".essay-rail__sticky");
+
+        function placeStick() {
+          var top = desktop.matches ? pin + "px" : "";
+          for (var i = 0; i < stickies.length; i++) stickies[i].style.top = top;
+        }
+
+        function layoutTracks() {
+          if (!desktop.matches) {
+            above.style.top = "";
+            above.style.height = "";
+            below.style.top = "";
+            placeStick();
+            above.style.opacity = "";
+            below.style.opacity = "";
+            above.style.pointerEvents = "";
+            below.style.pointerEvents = "";
+            aboveShift.style.transform = "";
+            belowShift.style.transform = "";
+            aboveShiftY = 0;
+            belowShiftY = 0;
+            aboveOpacity = -1;
+            belowOpacity = -1;
+            rail.classList.remove("is-clearing", "is-arrived");
+            clearing = false;
+            arrived = false;
+            setActive(above, true);
+            setActive(below, false);
+            return;
+          }
+          var scrollY = window.scrollY;
+          var railDoc = rail.getBoundingClientRect().top + scrollY;
+          var bounds = collisionDoc(scrollY);
+          boundsTop = bounds.top;
+          boundsBottom = bounds.bottom;
+          /* Track starts on the stick line, which is the heading, so the
+             phone is already there when the page is at the top. */
+          above.style.top = (pin - railDoc) + "px";
+          above.style.height = Math.max(phoneH, bounds.top - pin + phoneH + lead + fadeSpan) + "px";
+          /* Come back in level with the heading under the figure, so the
+             phone has the same gap beneath the image as that heading.
+             The ease is measured from this same line, so it still falls
+             behind and creeps into the stick point. */
+          resumeTop = resumeDoc(scrollY);
+          below.style.top = ((resumeTop == null ? bounds.bottom : resumeTop) - railDoc) + "px";
+          placeStick();
+        }
+
+        function resumeDoc(scrollY) {
+          var section = block.closest("section");
+          var next = section && section.nextElementSibling;
+          var head = next && next.querySelector("h2");
+          if (!head) return null;
+          return head.getBoundingClientRect().top + scrollY;
+        }
+
+        function collisionDoc(scrollY) {
+          var box = figure.getBoundingClientRect();
+          var fig = block.getBoundingClientRect();
+          return {
+            top: box.top + scrollY - padTop,
+            bottom: fig.bottom + scrollY + padBottom
+          };
+        }
+
+        var aboveShift = above.querySelector(".essay-rail__shift");
+        var belowShift = below.querySelector(".essay-rail__shift");
+        var boundsTop = 0;
+        var boundsBottom = 0;
+        var resumeTop = null;
+        var aboveShiftY = 0;
+        var belowShiftY = 0;
+        var aboveOpacity = -1;
+        var belowOpacity = -1;
+
+        function clamp01(value) {
+          if (value < 0) return 0;
+          if (value > 1) return 1;
+          return value;
+        }
+
+        function setShift(el, y, current) {
+          var next = Math.round(y * 10) / 10;
+          if (next === current) return current;
+          el.style.transform = next ? "translate3d(0," + next + "px,0)" : "";
+          return next;
+        }
+
+        function paintFade(track, opacity, previous) {
+          var next = Math.round(opacity * 1000) / 1000;
+          if (next === previous) return previous;
+          track.style.opacity = String(next);
+          return next;
+        }
+
+        /* Only the copy under the figure eases. It falls behind, then creeps
+           up into the stick line. */
+        function easeBelow(bottomViewport) {
+          var zone = 280;
+          var settle = 36;
+          var endSpeed = 1 - (2 * settle) / zone;
+          var extra = (2 * settle) / endSpeed;
+          var x = pin + zone - bottomViewport;
+          var lag = 0;
+          if (x > 0 && x < zone) {
+            var u = x / zone;
+            lag = settle * u * u;
+          } else if (x >= zone) {
+            var past = x - zone;
+            if (past < extra) {
+              var remain = 1 - past / extra;
+              lag = settle * remain * remain;
+            }
+          }
+          belowShiftY = setShift(belowShift, lag, belowShiftY);
+          aboveShiftY = setShift(aboveShift, 0, aboveShiftY);
+        }
+
+        function sync() {
+          if (!desktop.matches) return;
+          var scrollY = window.scrollY;
+          var topViewport = boundsTop - scrollY;
+          var bottomViewport = boundsBottom - scrollY;
+          var gap = topViewport - (pin + phoneH);
+          /* 1 while clear of the figure, 0 once the phone has scrolled up to it. */
+          var aboveP = 1 - clamp01((lead + fadeSpan - gap) / fadeSpan);
+          var roomBelow = window.innerHeight - bottomViewport;
+          var belowP = topViewport < pin ? clamp01((roomBelow - phoneH) / fadeSpan) : 0;
+          aboveOpacity = paintFade(above, aboveP, aboveOpacity);
+          belowOpacity = paintFade(below, belowP, belowOpacity);
+          easeBelow((resumeTop == null ? boundsBottom : resumeTop) - scrollY);
+          above.style.pointerEvents = aboveP > 0 ? "" : "none";
+          below.style.pointerEvents = belowP > 0 ? "auto" : "none";
+          var nextClearing = aboveP <= 0;
+          var nextArrived = belowP > 0;
+          if (nextClearing === clearing && nextArrived === arrived) return;
+          clearing = nextClearing;
+          arrived = nextArrived;
+          rail.classList.toggle("is-clearing", clearing);
+          rail.classList.toggle("is-arrived", arrived);
+          setActive(above, !clearing);
+          setActive(below, nextArrived);
+        }
+
+        function measure() {
+          var scrollY = window.scrollY;
+          pin = heading.getBoundingClientRect().top + scrollY;
+          lead = measureLen("--essay-fade-lead");
+          fadeSpan = measureLen("--essay-fade-span") || 1;
+          phoneH = phone.offsetHeight;
+          var margin = getComputedStyle(block);
+          padTop = parseFloat(margin.marginTop) || 0;
+          padBottom = parseFloat(margin.marginBottom) || 0;
+          layoutTracks();
+          sync();
+        }
+
+        function request() {
+          if (frame) return;
+          frame = requestAnimationFrame(function () {
+            frame = 0;
+            sync();
+          });
+        }
+
+        measure();
+        requestAnimationFrame(function () {
+          rail.classList.add("is-ready");
+        });
+        document.addEventListener("scroll", request, { passive: true });
+        window.addEventListener("resize", measure);
+        window.addEventListener("load", measure);
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+        if (window.ResizeObserver) {
+          var observer = new ResizeObserver(measure);
+          observer.observe(document.querySelector(".essay__body"));
+        }
+        if (desktop.addEventListener) desktop.addEventListener("change", measure);
+        var img = phone.querySelector("img");
+        if (img) img.addEventListener("load", measure);
+      })();
+    </script>
+    <script>
+      (function () {
+        var box = document.querySelector(".essay-figure:not(.essay-figure--bleed) .essay-figure__box");
+        var hex = box && box.querySelector(".hex");
+        if (!hex) return;
+
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var appearEvery = 140;
+        var leaveEvery = 780;
+        var timers = [];
+        var cells = [];
+        var cursor = 0;
+        var fading = false;
+
+        function clearTimers() {
+          timers.forEach(function (id) {
+            clearInterval(id);
+            clearTimeout(id);
+          });
+          timers = [];
+        }
+
+        function layout() {
+          clearTimers();
+          fading = false;
+          cursor = 0;
+          cells = [];
+          hex.classList.remove("is-fade");
+          hex.textContent = "";
+
+          var rect = box.getBoundingClientRect();
+          if (rect.width < 40 || rect.height < 40) return;
+
+          var narrow = rect.width < 420;
+          var dot = narrow ? 15 : 18;
+          var gap = narrow ? 12 : 16;
+          var dx = dot + gap;
+          var dy = dx * Math.sqrt(3) / 2;
+          var pad = narrow ? 18 : 28;
+          var availW = rect.width - pad * 2;
+          var availH = rect.height - pad * 2;
+          var cols = Math.max(3, Math.floor((availW - dot) / dx) + 1);
+          var rows = Math.max(3, Math.floor((availH - dot) / dy) + 1);
+          hex.style.setProperty("--d", dot + "px");
+
+          var raw = [];
+          for (var r = 0; r < rows; r++) {
+            var odd = r % 2 === 1;
+            var count = odd ? cols - 1 : cols;
+            for (var c = 0; c < count; c++) {
+              raw.push({
+                x: (odd ? dx / 2 : 0) + c * dx,
+                y: r * dy
+              });
+            }
+          }
+
+          var minX = Infinity;
+          var minY = Infinity;
+          var maxX = -Infinity;
+          var maxY = -Infinity;
+          raw.forEach(function (cell) {
+            minX = Math.min(minX, cell.x - dot / 2);
+            minY = Math.min(minY, cell.y - dot / 2);
+            maxX = Math.max(maxX, cell.x + dot / 2);
+            maxY = Math.max(maxY, cell.y + dot / 2);
+          });
+          var shiftX = (rect.width - (maxX - minX)) / 2 - minX;
+          var shiftY = (rect.height - (maxY - minY)) / 2 - minY;
+          var cx = rect.width / 2;
+          var cy = rect.height / 2;
+          raw.forEach(function (cell) {
+            cell.x += shiftX;
+            cell.y += shiftY;
+          });
+          var ring = dx * 0.75;
+          raw.sort(function (a, b) {
+            var da = (a.x - cx) * (a.x - cx) + (a.y - cy) * (a.y - cy);
+            var db = (b.x - cx) * (b.x - cx) + (b.y - cy) * (b.y - cy);
+            if (Math.abs(Math.sqrt(da) - Math.sqrt(db)) > ring) return da - db;
+            return Math.atan2(a.y - cy, a.x - cx) - Math.atan2(b.y - cy, b.x - cx);
+          });
+
+          raw.forEach(function (cell) {
+            var el = document.createElement("span");
+            el.className = "hex__dot";
+            el.style.left = cell.x + "px";
+            el.style.top = cell.y + "px";
+            hex.appendChild(el);
+            cells.push({ el: el, on: false, flashing: false, onAt: 0, offAt: 0 });
+          });
+
+          if (reduce) {
+            cells.forEach(function (cell) {
+              cell.on = true;
+              cell.el.classList.add("is-on");
+            });
+            return;
+          }
+
+          timers.push(setInterval(appear, appearEvery));
+          timers.push(setInterval(leave, leaveEvery));
+        }
+
+        function appear() {
+          if (fading || !cells.length) return;
+          var cell = null;
+          if (cursor < cells.length) {
+            cell = cells[cursor];
+            cursor += 1;
+          } else {
+            var holes = cells.filter(function (item) { return !item.on; });
+            if (!holes.length) {
+              fadeOut();
+              return;
+            }
+            holes.sort(function (a, b) { return a.offAt - b.offAt; });
+            cell = holes[0];
+          }
+          cell.on = true;
+          cell.flashing = false;
+          cell.onAt = Date.now();
+          var el = cell.el;
+          if (el.classList.contains("is-out") || el.classList.contains("is-flash")) {
+            el.style.transition = "none";
+            el.classList.remove("is-out", "is-flash", "is-on");
+            el.offsetHeight;
+            el.style.transition = "";
+            el.offsetHeight;
+          }
+          el.classList.add("is-on");
+          if (cursor >= cells.length && cells.every(function (item) { return item.on; })) fadeOut();
+        }
+
+        function leave() {
+          if (fading) return;
+          var on = cells.filter(function (item) { return item.on && !item.flashing; });
+          if (on.length < 6) return;
+          var newest = 0;
+          on.forEach(function (item) { if (item.onAt > newest) newest = item.onAt; });
+          var pool = on.filter(function (item) { return item.onAt !== newest; });
+          if (!pool.length) return;
+          var pick = pool[Math.floor(Math.random() * pool.length)];
+          pick.flashing = true;
+          pick.el.classList.add("is-flash");
+          timers.push(setTimeout(function () {
+            if (fading || !pick.flashing) return;
+            pick.flashing = false;
+            pick.on = false;
+            pick.offAt = Date.now();
+            pick.el.classList.remove("is-flash", "is-on");
+            pick.el.classList.add("is-out");
+          }, 340));
+        }
+
+        function fadeOut() {
+          if (fading) return;
+          fading = true;
+          hex.classList.add("is-fade");
+          timers.push(setTimeout(function () {
+            hex.classList.remove("is-fade");
+            cells.forEach(function (cell) {
+              cell.on = false;
+              cell.flashing = false;
+              cell.onAt = 0;
+              cell.offAt = 0;
+              cell.el.style.transition = "none";
+              cell.el.classList.remove("is-on", "is-out", "is-flash");
+            });
+            hex.offsetHeight;
+            cells.forEach(function (cell) { cell.el.style.transition = ""; });
+            cursor = 0;
+            fading = false;
+          }, 1200));
+        }
+
+        layout();
+        window.addEventListener("resize", layout);
+      })();
+    </script>
+    <script>
+      (function () {
+        var loops = [].slice.call(document.querySelectorAll(".essay-figure--bleed .loop"));
+        if (!loops.length) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        /* One card changes section per beat. The card is chosen from
+           anywhere in its section. Completing a focus card adds one at
+           the bottom, and the two lower sections stay the same length. */
+        var beats = [
+          { t: "up", from: 2, pause: 210 },
+          { t: "up", from: 1, pause: 930 },
+          { t: "out", pause: 270 },
+          { t: "up", from: 1, pause: 1170 },
+          { t: "out", pause: 165 },
+          { t: "up", from: 2, pause: 735 },
+          { t: "up", from: 2, pause: 1110 },
+          { t: "up", from: 1, pause: 225 },
+          { t: "out", pause: 1290 },
+          { t: "up", from: 1, pause: 180 },
+          { t: "out", pause: 645 },
+          { t: "up", from: 2, pause: 390 }
+        ];
+
+        /* Same practice, started at different points so the three lists
+           do not move together. */
+        var shifts = [4, 0, 8];
+        var delays = [1700, 900, 2400];
+
+        loops.forEach(function (loop, index) {
+          var shift = shifts[index] || 0;
+          run(loop, beats.slice(shift).concat(beats.slice(0, shift)), delays[index] || 900);
+        });
+
+        function run(loop, sequence, delay) {
+        var groups = [[], [], []];
+        var pool = [].slice.call(loop.children);
+        var step = 0;
+
+        function metrics() {
+          var cs = getComputedStyle(loop);
+          return {
+            card: parseFloat(cs.getPropertyValue("--card")) || 36,
+            gap: parseFloat(cs.getPropertyValue("--gap")) || 8,
+            section: parseFloat(cs.getPropertyValue("--section")) || 36
+          };
+        }
+
+        function spots() {
+          var m = metrics();
+          var stride = m.card + m.gap;
+          var y = 0;
+          var list = [];
+          for (var s = 0; s < 3; s++) {
+            for (var i = 0; i < groups[s].length; i++) {
+              list.push({ card: groups[s][i], y: y, section: s });
+              y += stride;
+            }
+            if (s < 2 && groups[s].length) y += m.section;
+          }
+          return { list: list, m: m, stride: stride, bottom: y };
+        }
+
+        function place(card, y, section, instant) {
+          if (instant) card.style.transition = "none";
+          card.style.setProperty("--y", y + "px");
+          card.style.backgroundColor = section === 0 ? "#ffffff" : section === 2 ? "#1a1a1a" : "#2a2a2a";
+          card.classList.toggle("is-focus", section === 0);
+          card.style.opacity = "1";
+          if (instant) {
+            card.offsetHeight;
+            card.style.transition = "";
+          }
+        }
+
+        var tempos = [740, 860, 980, 1120, 780, 1280];
+
+        function tempo() {
+          var ms = tempos[Math.floor(Math.random() * tempos.length)];
+          loop.style.setProperty("--move", (ms / 1000).toFixed(2) + "s");
+          return ms;
+        }
+
+        function lift(card, ms) {
+          card.classList.remove("is-lift");
+          card.offsetWidth;
+          card.classList.add("is-lift");
+          setTimeout(function () { card.classList.remove("is-lift"); }, ms);
+        }
+
+        var reactMs = 240;
+
+        function spotFor(card) {
+          var found = null;
+          spots().list.forEach(function (item) {
+            if (item.card === card) found = item;
+          });
+          return found;
+        }
+
+        function layout(instant, skip) {
+          spots().list.forEach(function (item) {
+            if (item.card === skip) return;
+            place(item.card, item.y, item.section, instant);
+          });
+        }
+
+        function follow(skip) {
+          setTimeout(function () { layout(false, skip); }, reactMs);
+        }
+
+        function take(list) {
+          if (list.length < 2) return null;
+          var i = Math.floor(Math.random() * list.length);
+          return list.splice(i, 1)[0];
+        }
+
+        function hide(card) {
+          card.classList.remove("is-lift");
+          card.classList.remove("is-focus");
+          card.style.transition = "none";
+          card.style.opacity = "0";
+          card.offsetHeight;
+          card.style.transition = "";
+          pool.push(card);
+        }
+
+        var seed = [2, 5, 5];
+        for (var s = 0; s < 3; s++) {
+          for (var n = 0; n < seed[s]; n++) groups[s].push(pool.pop());
+        }
+        layout(true);
+        pool.forEach(function (card) {
+          var parked = spots().bottom + 8;
+          card.style.transition = "none";
+          card.style.opacity = "0";
+          card.style.setProperty("--y", parked + "px");
+          card.offsetHeight;
+          card.style.transition = "";
+        });
+
+        function play() {
+          var beat = sequence[step % sequence.length];
+          var ms = tempo();
+          var jitter = Math.round(Math.random() * 520) - 120;
+          step += 1;
+          if (beat.t === "up") {
+            var src = groups[beat.from];
+            var card = take(src);
+            if (card) {
+              groups[beat.from - 1].push(card);
+              var dest = spotFor(card);
+              place(card, dest.y, dest.section, false);
+              lift(card, ms);
+              follow(card);
+            }
+          } else if (beat.t === "out") {
+            var gone = groups[0].length > 1 ? groups[0].shift() : null;
+            var fresh = pool.pop();
+            if (gone) {
+              var rise = (metrics().card || 36) * 0.7;
+              var current = gone.getBoundingClientRect().top - loop.getBoundingClientRect().top;
+              gone.classList.remove("is-lift");
+              gone.style.setProperty("--y", (current - rise) + "px");
+              gone.style.opacity = "0";
+              setTimeout(function () { hide(gone); }, ms);
+            }
+            setTimeout(function () {
+              if (fresh) groups[2].push(fresh);
+              layout(false);
+              if (!fresh) return;
+              var target = spotFor(fresh);
+              var from = target.y + metrics().card * 0.45;
+              fresh.style.transition = "none";
+              fresh.style.setProperty("--y", from + "px");
+              fresh.style.backgroundColor = "#1a1a1a";
+              fresh.style.opacity = "0";
+              fresh.offsetHeight;
+              fresh.style.transition = "";
+              requestAnimationFrame(function () {
+                place(fresh, target.y, 2, false);
+              });
+            }, reactMs);
+          }
+          timer = setTimeout(play, ms + Math.max(110, beat.pause + jitter));
+        }
+
+        var timer = setTimeout(play, delay);
+        window.addEventListener("resize", function () { layout(true); });
+        }
+      })();
+    </script>
+    <script>
+      (function () {
+        var root = document.querySelector(".specimen");
+        if (!root) return;
+        var cards = [].slice.call(root.querySelectorAll(".ds-card--focus"));
+        if (!cards.length) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        var near = 58;
+        var far = 16;
+
+        function fade(top) {
+          var t = (near - top) / (near - far);
+          t = Math.min(1, Math.max(0, t));
+          return 1 - t * 0.78;
+        }
+
+        function frame() {
+          var top = root.getBoundingClientRect().top;
+          cards.forEach(function (card) {
+            card.style.opacity = fade(card.getBoundingClientRect().top - top).toFixed(3);
+          });
+          requestAnimationFrame(frame);
+        }
+
+        requestAnimationFrame(frame);
+      })();
+    </script>
+    <script>
+      (function () {
+        var root = document.querySelector(".marks");
+        if (!root) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        var segs = [];
+        [].slice.call(root.querySelectorAll(".marks__icon")).forEach(function (icon) {
+          var parts = [].slice.call(icon.querySelectorAll("path")).map(function (el) {
+            var box = el.getBBox();
+            return { el: el, x: box.x, y: box.y };
+          });
+          parts.sort(function (a, b) { return a.x - b.x || a.y - b.y; });
+          segs = segs.concat(parts);
+        });
+
+        var glow = "drop-shadow(0 0 6px rgb(255 255 255 / 75%)) drop-shadow(0 0 16px rgb(255 255 255 / 45%))";
+        var move = "fill 0.22s cubic-bezier(0.4, 0, 0.2, 1), filter 0.22s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1)";
+
+        function rest(el) {
+          el.style.fill = "#ffffff";
+          el.style.filter = "none";
+          el.style.opacity = "0";
+        }
+
+        segs.forEach(function (seg) {
+          rest(seg.el);
+          seg.el.style.transition = move;
+        });
+
+        var index = 0;
+
+        function lightNext() {
+          if (index < segs.length) {
+            var el = segs[index].el;
+            el.style.fill = "#ffffff";
+            el.style.filter = glow;
+            el.style.opacity = "1";
+            index += 1;
+            setTimeout(lightNext, 85);
+            return;
+          }
+          setTimeout(function () {
+            segs.forEach(function (seg) { seg.el.style.opacity = "0"; });
+            setTimeout(function () {
+              segs.forEach(function (seg) {
+                seg.el.style.transition = "none";
+                rest(seg.el);
+              });
+              root.getBoundingClientRect();
+              segs.forEach(function (seg) { seg.el.style.transition = move; });
+              index = 0;
+              setTimeout(lightNext, 360);
+            }, 460);
+          }, 1800);
+        }
+
+        setTimeout(lightNext, 280);
+      })();
+    </script>
   </body>
 </html>
