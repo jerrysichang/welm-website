@@ -1268,7 +1268,7 @@ html:has(body.essay-page) {
 
 @media (max-width: 600px) {
   .essay-layout {
-    width: min(480px, calc(100% - 7rem));
+    width: calc(100% - 2 * var(--container-padding));
     margin-left: auto;
     margin-right: auto;
   }
@@ -1281,6 +1281,25 @@ html:has(body.essay-page) {
   .marks__icon {
     width: 60px;
     height: 60px;
+  }
+
+  /* Move numbers above headings on mobile */
+  .essay-num {
+    position: static;
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.8125rem;
+  }
+
+  .essay__body h2 .essay-num,
+  .essay__body h3 .essay-num {
+    top: auto;
+  }
+
+  .essay__body h2,
+  .essay__body h3 {
+    display: flex;
+    flex-direction: column;
   }
 }
 
